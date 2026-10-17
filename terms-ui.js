@@ -2,6 +2,8 @@ const TERM_STORAGE_KEY="fe-completion-20221211-v1-term-progress";
 const termState={
   filter:"すべて",
   query:"",
+  question:"",
+  choiceScope:"all",
   active:0,
   flipped:false,
   progress:readJSON(TERM_STORAGE_KEY,{})
@@ -21,7 +23,13 @@ function termStatus(term){
 function termAnswered(term){
   return !!termStatus(term);
 }
-function filteredTerms(){return TERMS.slice();}
+function filteredTerms(){
+ const query=termState.query.trim().toLowerCase();
+ const number=query.match(/^(?:問)?(\d+)$/)?.[1];
+ return TERMS.filter(t=>(!termState.question||t.q===Number(termState.question))
+   &&(termState.choiceScope==='all'||(termState.choiceScope==='chosen'?t.chosen:!t.chosen))
+   &&(!query||(number?t.q===Number(number):[t.term,t.meaning,t.trap,t.field].join(' ').toLowerCase().includes(query))));
+}
 function termReviewContext(){
   if(typeof window.getTermReviewState==="function")return window.getTermReviewState();
   return {graded:false,questionNumbers:[]};
@@ -47,6 +55,10 @@ function setActiveTerm(index){
 function jumpToTerm(termId){
   const target=TERMS.find(t=>t.id===termId);
   if(!target)return;
+  termState.query="";termState.question=String(target.q);termState.choiceScope="all";
+  const search=document.querySelector('#termSearch');if(search)search.value="";
+  const question=document.querySelector('#termQuestion');if(question)question.value=termState.question;
+  const scope=document.querySelector('#termChoiceScope');if(scope)scope.value="all";
   const index=filteredTerms().findIndex(t=>t.id===termId);
   setActiveTerm(index<0?0:index);
 }
@@ -72,7 +84,7 @@ function renderTerms(){
   const weak=TERMS.filter(t=>termStatus(t)==="weak").length;
   const wrongWeak=weakTermsFromAnswers();
   document.querySelector("#termStats").innerHTML=[
-    ["全用語",TERMS.length],
+    ["全カード",TERMS.length],
     ["説明できた",known],
     ["少し不安",shaky],
     ["説明できない",weak]
@@ -88,20 +100,20 @@ function renderTerms(){
     card.innerHTML=`
       <div class="term-card-top">
         <span>${termEsc(active.field)}</span>
-        <a href="#q${active.q}">問${active.q}</a>
+        <a href="#q${active.q}">問${active.q}・選択肢${active.choice}</a>
       </div>
       <button class="term-flip" type="button" aria-expanded="${termState.flipped}">
         <span class="term-face front">
-          <small>この用語を説明できる？</small>
+          <small>この用語・考え方を説明できる？</small>
           <strong>${termEsc(active.term)}</strong>
           <em>クリックして説明例を見る</em>
         </span>
         <span class="term-face back">
-          <small>説明例</small>
+          <small>用語・考え方の意味</small>
           <strong>${termEsc(active.term)}</strong>
-          <b>${termEsc(active.cue)}</b>
+          
           <p>${termEsc(active.meaning)}</p>
-          <i>${termEsc(active.trap)}</i>
+          <i><strong class="choice-context">問${active.q}・選択肢${active.choice}：${active.chosen?"この問題で選ぶ":"この問題では選ばない"}</strong>${termEsc(active.trap)}</i>
         </span>
       </button>
       <div class="term-tags">${active.tags.map(tag=>`<span>${termEsc(tag)}</span>`).join("")}</div>
@@ -117,11 +129,11 @@ function renderTerms(){
   if(termList)termList.innerHTML=list.map((t,i)=>{
     const status=termStatus(t);
     return `<button type="button" class="${i===termState.active?"active":""} ${termStatusClass[status]||""}" data-term-index="${i}">
-      <b>${termEsc(t.term)}</b><span>問${t.q}</span>
+      <b>${termEsc(t.term)}</b><span>問${t.q}・${t.choice}</span>
     </button>`;
   }).join("");
   document.querySelector("#termWeakLinks").innerHTML=wrongWeak.length
-    ?wrongWeak.map(t=>`<a href="#termLearning" data-term-jump="${t.id}">${termEsc(t.term)}<span>問${t.q}</span></a>`).join("")
+    ?wrongWeak.slice(0,16).map(t=>`<a href="#termLearning" data-term-jump="${t.id}">${termEsc(t.term)}<span>問${t.q}・${t.choice}</span></a>`).join("")
     :`<span>${termEsc(reviewTermMessage())}</span>`;
   document.querySelector("#termPosition").textContent=list.length?`${termState.active+1} / ${list.length}`:"0 / 0";
 }
@@ -138,6 +150,14 @@ function initTerms(){
       renderTerms();
     }
   };
+  const resetFilter=()=>{termState.active=0;termState.flipped=false;renderTerms()};
+  const runTermSearch=()=>{termState.query=document.querySelector('#termSearch').value;resetFilter()};
+  document.querySelector('#termSearch').oninput=runTermSearch;
+  document.querySelector('#termSearch').onchange=runTermSearch;
+  document.querySelector('#termSearch').onkeydown=e=>{if(e.key==='Enter')runTermSearch()};
+  document.querySelector('#termSearchButton').onclick=runTermSearch;
+  document.querySelector('#termQuestion').onchange=e=>{termState.question=e.target.value;resetFilter()};
+  document.querySelector('#termChoiceScope').onchange=e=>{termState.choiceScope=e.target.value;resetFilter()};
   const termList=document.querySelector("#termList");
   if(termList)termList.onclick=e=>{
     const button=e.target.closest("[data-term-index]");

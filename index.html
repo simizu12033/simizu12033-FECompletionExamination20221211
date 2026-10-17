@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="2022.12.11 FE修了試験・基本情報技術者 午前試験免除・全80問の試験演習と図解復習">
   <title>2022.12.11 FE修了試験｜問題演習と図解復習</title>
-  <link rel="stylesheet" href="styles.css?v=20261017-01">
-  <link rel="stylesheet" href="visuals.css?v=20261017-01">
-  <link rel="stylesheet" href="flow.css?v=20261017-01">
-  <link rel="stylesheet" href="report.css?v=20261017-01">
-  <link rel="stylesheet" href="terms.css?v=20261017-01">
-  <link rel="stylesheet" href="classroom.css?v=20261017-01">
+  <link rel="stylesheet" href="styles.css?v=20261017-02">
+  <link rel="stylesheet" href="visuals.css?v=20261017-02">
+  <link rel="stylesheet" href="flow.css?v=20261017-02">
+  <link rel="stylesheet" href="report.css?v=20261017-02">
+  <link rel="stylesheet" href="terms.css?v=20261017-02">
+  <link rel="stylesheet" href="classroom.css?v=20261017-02">
+  <link rel="stylesheet" href="revision.css?v=20261017-02">
 </head>
 <body>
   <header class="hero">
@@ -24,7 +25,7 @@
     <div class="hero-inner" id="top">
       <p class="eyebrow">2022.12.11 FE修了試験｜基本情報技術者 午前試験免除</p>
       <p class="lesson-label">NEW LESSON / 新しい学びのスタート</p><h1>ここから、<br><em>理解を積み重ねる。</em></h1>
-      <p class="lead">一問ずつ考え、図解で確かめ、自分の言葉で説明する。80問の演習と用語カードで、今日の学びを確かな力に。</p>
+      <p class="lead">一問ずつ考え、図解で確かめ、自分の言葉で説明する。80問の演習と、ア〜エを網羅した320枚のカードで、今日の学びを確かな力に。</p>
       <p class="save-note">
         <strong>学習内容は自動保存されます。</strong>
         同じ端末・同じブラウザで同じURLを再度開くと、採点結果、回答内容、学習レポート、理解チェックが前回と同じ状態で表示され、復習を続けられます。
@@ -32,7 +33,7 @@
       </p>
       <nav class="quick-links" aria-label="学習メニュー"><a href="#q1">問題を解く →</a><a href="#termLearning">用語カード</a><a href="source-map.html">出典を確認</a></nav><div class="hero-stats">
         <div><strong>80</strong><span>全問題</span></div>
-        <div><strong>80</strong><span>用語カード</span></div>
+        <div><strong>320</strong><span>用語・選択肢カード</span></div>
         <div><strong>48</strong><span>目標正答数</span></div>
         <div><strong>150</strong><span>演習目安（分）</span></div>
       </div>
@@ -94,16 +95,16 @@
         <div>
           <p class="section-kicker">TERM CARDS</p>
           <h2>重要用語カード</h2>
-          <p>用語を見て、自分の言葉で説明できるかを確認します。覚えた状態は自動保存されます。</p>
+          <p>正答以外も含むア〜エの320枚。用語・考え方の意味と、各問題で選ぶ・選ばない理由を確認できます。</p>
         </div>
         <div id="termStats" class="term-stats" aria-label="用語カードの進捗"></div>
       </div>
-      <div class="term-tools" hidden>
-        <label class="search"><span>⌕</span><input id="termSearch" type="search" placeholder="用語・説明・タグで検索"></label>
-        <div id="termFilters" class="term-filters"></div>
-      </div>
-      <div class="term-layout">
-        <aside class="term-side">
+      <div class="term-tools choice-tools">
+ <label>用語・問題番号を検索<input id="termSearch" type="search" placeholder="例：スラッシング、問18、18"></label>
+ <button type="button" id="termSearchButton" class="primary">検索</button><label>問題<select id="termQuestion"><option value="">全80問</option><option value="1">問1</option><option value="2">問2</option><option value="3">問3</option><option value="4">問4</option><option value="5">問5</option><option value="6">問6</option><option value="7">問7</option><option value="8">問8</option><option value="9">問9</option><option value="10">問10</option><option value="11">問11</option><option value="12">問12</option><option value="13">問13</option><option value="14">問14</option><option value="15">問15</option><option value="16">問16</option><option value="17">問17</option><option value="18">問18</option><option value="19">問19</option><option value="20">問20</option><option value="21">問21</option><option value="22">問22</option><option value="23">問23</option><option value="24">問24</option><option value="25">問25</option><option value="26">問26</option><option value="27">問27</option><option value="28">問28</option><option value="29">問29</option><option value="30">問30</option><option value="31">問31</option><option value="32">問32</option><option value="33">問33</option><option value="34">問34</option><option value="35">問35</option><option value="36">問36</option><option value="37">問37</option><option value="38">問38</option><option value="39">問39</option><option value="40">問40</option><option value="41">問41</option><option value="42">問42</option><option value="43">問43</option><option value="44">問44</option><option value="45">問45</option><option value="46">問46</option><option value="47">問47</option><option value="48">問48</option><option value="49">問49</option><option value="50">問50</option><option value="51">問51</option><option value="52">問52</option><option value="53">問53</option><option value="54">問54</option><option value="55">問55</option><option value="56">問56</option><option value="57">問57</option><option value="58">問58</option><option value="59">問59</option><option value="60">問60</option><option value="61">問61</option><option value="62">問62</option><option value="63">問63</option><option value="64">問64</option><option value="65">問65</option><option value="66">問66</option><option value="67">問67</option><option value="68">問68</option><option value="69">問69</option><option value="70">問70</option><option value="71">問71</option><option value="72">問72</option><option value="73">問73</option><option value="74">問74</option><option value="75">問75</option><option value="76">問76</option><option value="77">問77</option><option value="78">問78</option><option value="79">問79</option><option value="80">問80</option></select></label>
+ <label>カードの範囲<select id="termChoiceScope"><option value="all">全ての選択肢</option><option value="other">正答以外の選択肢</option><option value="chosen">この問題で選ぶ選択肢</option></select></label>
+ </div><div class="term-layout">
+        <aside class="term-side"><section class="term-list-wrap"><h3>カード一覧</h3><div id="termList" class="term-list"></div></section>
           <section class="term-weak">
             <h3>復習におすすめの用語</h3>
             <div id="termWeakLinks" class="term-weak-links"></div>
@@ -154,13 +155,13 @@
   </main>
 
   <footer>
-    <div class="footer-notes"><p class="release-version">教材バージョン：20261017-01（2022年12月11日版）</p>
+    <div class="footer-notes"><p class="release-version">教材バージョン：20261017-02（設問別図解・全選択肢解説版）</p>
       <p>2022.12.11 FE修了試験（基本情報技術者 午前試験免除）・学習用解説</p>
       <p class="source-note">問題画像：提供された tokurei_Mondai_20221211_FE.pdf（P.3～40）。正答：提供された tokurei_ans_20221211_FE.pdf。解説・図解・用語カードは学習用に作成した教材です。</p>
     </div>
     <div class="footer-links">
       <a href="#termLearning">重要用語カード</a>
-      <a href="reference-map.html">参考問題対応表</a>
+      <a href="diagram-gallery.html">全80問の図解一覧</a><a href="reference-map.html">問題・出典対応表</a>
       <a href="source-map.html">出典の分析</a>
       <a href="#top">ページ上部へ ↑</a><button type="button" data-action="reset">解答記録をリセット</button>
     </div>
@@ -206,11 +207,11 @@
     <div><button id="cancelSubmit" type="button">戻る</button><button id="confirmSubmit" class="primary" type="button">採点する</button></div>
   </dialog>
 
-  <script src="questions.js?v=20261017-01"></script>
-  <script src="terms.js?v=20261017-01"></script>
-  <script src="app.js?v=20261017-01"></script>
-  <script src="terms-ui.js?v=20261017-01"></script>
-  <script src="learning.js?v=20261017-01"></script>
+  <script src="questions.js?v=20261017-02"></script>
+  <script src="terms.js?v=20261017-02"></script>
+  <script src="app.js?v=20261017-02"></script>
+  <script src="terms-ui.js?v=20261017-02"></script>
+  <script src="learning.js?v=20261017-02"></script>
 </body>
 </html>
 

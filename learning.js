@@ -149,6 +149,10 @@ function renderLearning(){
     }
     if(q.reference){const ref=document.createElement("p");ref.innerHTML=`<a href="${esc(q.reference[1])}" target="_blank" rel="noopener">参考：${esc(q.reference[0])}</a>`;node.querySelector(".explanation").appendChild(ref);}
 
+    const compare=document.createElement("section");
+    compare.className="option-comparison";
+    compare.innerHTML=`<h3>ア〜エを比べる</h3><p>用語の意味と、この問題で選ぶ・選ばない理由を確認します。</p><div class="choice-comparison-grid">${q.choices.map(c=>`<article class="choice-comparison ${c.chosen?'chosen':''}"><h4><b>${c.label}</b> ${esc(c.term)}${c.chosen?'<small>この問題で選ぶ</small>':''}</h4><p>${esc(c.meaning)}</p><div>${esc(c.explanation)}</div><a href="#termLearning" data-term-ref="${esc(c.termId)}">この選択肢をカードで学ぶ →</a></article>`).join("")}</div>`;
+    node.querySelector(".review-content").appendChild(compare);
     node.querySelector(".diagram").innerHTML=window.renderRichVisual(q);
     node.querySelector("figcaption").textContent=q.caption;
     const check=node.querySelector(".understand-check input");

@@ -4,6 +4,7 @@ const termState={
   query:"",
   question:"",
   choiceScope:"all",
+  reviewMode:"all",
   active:0,
   flipped:false,
   progress:readJSON(TERM_STORAGE_KEY,{})
@@ -28,6 +29,7 @@ function filteredTerms(){
  const number=query.match(/^(?:問)?(\d+)$/)?.[1];
  return TERMS.filter(t=>(!termState.question||t.q===Number(termState.question))
    &&(termState.choiceScope==='all'||(termState.choiceScope==='chosen'?t.chosen:!t.chosen))
+   &&(termState.reviewMode==='all'||(termState.reviewMode==='due'?FEReview.due(termState.progress[t.id]):termState.reviewMode==='unseen'?!termState.progress[t.id]:['weak','shaky'].includes(termState.progress[t.id]?.status)))
    &&(!query||(number?t.q===Number(number):[t.term,t.meaning,t.trap,t.field].join(' ').toLowerCase().includes(query))));
 }
 function termReviewContext(){
@@ -55,7 +57,8 @@ function setActiveTerm(index){
 function jumpToTerm(termId){
   const target=TERMS.find(t=>t.id===termId);
   if(!target)return;
-  termState.query="";termState.question=String(target.q);termState.choiceScope="all";
+  termState.query="";termState.question=String(target.q);termState.choiceScope="all";termState.reviewMode="all";
+  const reviewMode=document.querySelector("#termReviewMode");if(reviewMode)reviewMode.value="all";
   const search=document.querySelector('#termSearch');if(search)search.value="";
   const question=document.querySelector('#termQuestion');if(question)question.value=termState.question;
   const scope=document.querySelector('#termChoiceScope');if(scope)scope.value="all";
@@ -66,10 +69,11 @@ function markTerm(status){
   const list=filteredTerms();
   const term=list[termState.active];
   if(!term)return;
-  termState.progress[term.id]={status,updatedAt:new Date().toISOString()};
+  termState.progress[term.id]=FEReview.schedule(termState.progress[term.id],status);
   saveTermProgress();
-  const next=Math.min(termState.active+1,Math.max(0,list.length-1));
-  termState.active=next;
+  const remaining=filteredTerms();
+  const currentIndex=remaining.findIndex(t=>t.id===term.id);
+  termState.active=Math.min(currentIndex<0?termState.active:currentIndex+1,Math.max(0,remaining.length-1));
   termState.flipped=false;
   renderTerms();
 }
@@ -83,17 +87,19 @@ function renderTerms(){
   const shaky=TERMS.filter(t=>termStatus(t)==="shaky").length;
   const weak=TERMS.filter(t=>termStatus(t)==="weak").length;
   const wrongWeak=weakTermsFromAnswers();
+  const due=TERMS.filter(t=>FEReview.due(termState.progress[t.id])).length;
   document.querySelector("#termStats").innerHTML=[
     ["全カード",TERMS.length],
     ["説明できた",known],
     ["少し不安",shaky],
-    ["説明できない",weak]
+    ["説明できない",weak],
+    ["復習時刻が来た",due]
   ].map(([label,value])=>`<div><strong>${value}</strong><span>${label}</span></div>`).join("");
   const filters=document.querySelector("#termFilters");
   if(filters)filters.innerHTML="";
   const card=document.querySelector("#termCard");
   if(!active){
-    card.innerHTML=`<p class="term-empty">条件に一致する用語がありません。</p>`;
+    card.innerHTML=`<p class="term-empty">${termState.reviewMode==='due'?'いま復習予定のカードはありません。「未学習」を選ぶか、次の復習予定時刻に取り組みましょう。':'条件に一致する用語がありません。'}</p>`;
   }else{
     const status=termStatus(active);
     card.className=`term-card ${termState.flipped?"flipped":""} ${termStatusClass[status]||""}`;
@@ -104,7 +110,7 @@ function renderTerms(){
       </div>
       <button class="term-flip" type="button" aria-expanded="${termState.flipped}">
         <span class="term-face front">
-          <small>この用語・考え方を説明できる？</small>
+          <small>答えを見る前に、自分の言葉で説明できる？</small>
           <strong>${termEsc(active.term)}</strong>
           <em>クリックして説明例を見る</em>
         </span>
@@ -122,7 +128,7 @@ function renderTerms(){
         <button type="button" data-term-status="shaky">少し不安</button>
         <button type="button" data-term-status="weak">説明できない</button>
       </div>
-      ${status?`<p class="term-current">現在：${termStatusLabel[status]}</p>`:""}
+      ${status?`<p class="term-current">現在：${termStatusLabel[status]}<br>次の復習：${termState.progress[active.id].nextReviewAt?FEReview.dateLabel(termState.progress[active.id].nextReviewAt):"旧記録のため次回の評価で予定を設定"}</p>`:""}
     `;
   }
   const termList=document.querySelector("#termList");
@@ -151,6 +157,8 @@ function initTerms(){
     }
   };
   const resetFilter=()=>{termState.active=0;termState.flipped=false;renderTerms()};
+  document.querySelector('#termReviewMode').onchange=e=>{termState.reviewMode=e.target.value;resetFilter()};
+  document.querySelector('#todayReview').onclick=()=>{termState.query="";termState.question="";termState.choiceScope="all";termState.reviewMode="due";document.querySelector('#termSearch').value="";document.querySelector('#termQuestion').value="";document.querySelector('#termChoiceScope').value="all";document.querySelector('#termReviewMode').value="due";resetFilter()};
   const runTermSearch=()=>{termState.query=document.querySelector('#termSearch').value;resetFilter()};
   document.querySelector('#termSearch').oninput=runTermSearch;
   document.querySelector('#termSearch').onchange=runTermSearch;

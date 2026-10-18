@@ -51,7 +51,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t001-エ"
       }
-    ]
+    ],
+    "fastRoute": "「ほぼ等しい値の減算」とあれば桁落ち。大きさが離れた値の加算は情報落ちと分ける。"
   },
   {
     "n": 2,
@@ -106,7 +107,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t002-エ"
       }
-    ]
+    ],
+    "fastRoute": "W>Tへ式を置き換え、ρ/(1−ρ)>1を解く。境界は0.5。"
   },
   {
     "n": 3,
@@ -161,7 +163,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t003"
       }
-    ]
+    ],
+    "fastRoute": "雨から「翌日が晴・曇・雨」の3経路へ分け、それぞれの積を足す。"
   },
   {
     "n": 4,
@@ -216,7 +219,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t004-エ"
       }
-    ]
+    ],
+    "fastRoute": "入力は10倍、計算量は10³倍。元の2秒に1000を掛け、速度4倍なので4で割る。"
   },
   {
     "n": 5,
@@ -270,7 +274,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t005-エ"
       }
-    ]
+    ],
+    "fastRoute": "多層の神経回路モデルの重みを学習する説明を選ぶ。ルール・探索・進化との違いを見る。"
   },
   {
     "n": 6,
@@ -325,7 +330,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t006-エ"
       }
-    ]
+    ],
+    "fastRoute": "各7ビットの1を数える。偶数なら0、奇数なら1を先頭へ付ける。"
   },
   {
     "n": 7,
@@ -380,7 +386,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t007-エ"
       }
-    ]
+    ],
+    "fastRoute": "行列の1を辺へ直し、全頂点が連結で閉路がないものを選ぶ。"
   },
   {
     "n": 8,
@@ -435,7 +442,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t008-エ"
       }
-    ]
+    ],
+    "fastRoute": "「隣り合う要素を比較して交換」がバブルソートの見分け方。"
   },
   {
     "n": 9,
@@ -490,7 +498,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t009-エ"
       }
-    ]
+    ],
+    "fastRoute": "開始k=1、一致したら即終了。重複があっても最初の位置で止まる。"
   },
   {
     "n": 10,
@@ -544,7 +553,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t010-エ"
       }
-    ]
+    ],
+    "fastRoute": "f(1)=1まで展開して戻す。f(5)は1〜5の合計15。"
   },
   {
     "n": 11,
@@ -598,7 +608,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t011-エ"
       }
-    ]
+    ],
+    "fastRoute": "タイマ等の外部から来る通知を選ぶ。演算例外・ページフォルト・専用命令と区別。"
   },
   {
     "n": 12,
@@ -653,7 +664,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t012-エ"
       }
-    ]
+    ],
+    "fastRoute": "時間=命令数×CPI×周期。同じ命令数なので(4×1)/(0.5×4)=2。"
   },
   {
     "n": 13,
@@ -709,7 +721,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t013-エ"
       }
-    ]
+    ],
+    "fastRoute": "ベースの「番号1」でなく内容100を使う。100+200=番地300から1300を読む。"
   },
   {
     "n": 14,
@@ -763,7 +776,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t014-エ"
       }
-    ]
+    ],
+    "fastRoute": "「主記憶を複数バンクに分割し、並列アクセス」を選ぶ。"
   },
   {
     "n": 15,
@@ -817,7 +831,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t015-エ"
       }
-    ]
+    ],
+    "fastRoute": "表示はプレゼンテーション、業務の加工はファンクション、取得はDBアクセス層。"
   },
   {
     "n": 16,
@@ -872,7 +887,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t016"
       }
-    ]
+    ],
+    "fastRoute": "総負荷は14台分。停止4台なら87.5％、5台なら93.3％で90％を初めて超える。"
   },
   {
     "n": 17,
@@ -927,7 +943,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t017-エ"
       }
-    ]
+    ],
+    "fastRoute": "共有xと読取り済みのe・fを別に追う。3を読んだ後に9へ更新され、3+9=12。"
   },
   {
     "n": 18,
@@ -981,7 +998,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t018-エ"
       }
-    ]
+    ],
+    "fastRoute": "「不要になっても解放しない」がメモリリーク。ページ交換や領域の分断とは別。"
   },
   {
     "n": 19,
@@ -1035,7 +1053,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t019-エ"
       }
-    ]
+    ],
+    "fastRoute": "意味を変えず実行効率を高めるコード生成が最適化。"
   },
   {
     "n": 20,
@@ -1090,7 +1109,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t020-エ"
       }
-    ]
+    ],
+    "fastRoute": "AB・CD・12・34をバイトで区切り、下位から34・12・CD・ABへ並べる。"
   },
   {
     "n": 21,
@@ -1144,7 +1164,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t021-エ"
       }
-    ]
+    ],
+    "fastRoute": "機械式スイッチの接点が短時間にON/OFFを繰り返す現象はチャタリング。"
   },
   {
     "n": 22,
@@ -1199,7 +1220,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t022-エ"
       }
-    ]
+    ],
+    "fastRoute": "100×10=1000W。運転60+30分を1.5時間へ直して掛ける。"
   },
   {
     "n": 23,
@@ -1253,7 +1275,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t023-エ"
       }
-    ]
+    ],
+    "fastRoute": "普段の文章で要求し、文章で応答しているので自然言語インタフェース。"
   },
   {
     "n": 24,
@@ -1308,7 +1331,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t024-エ"
       }
-    ]
+    ],
+    "fastRoute": "時間方向を一定間隔で切り出すのは標本化。振幅の段階化は量子化。"
   },
   {
     "n": 25,
@@ -1362,7 +1386,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t025"
       }
-    ]
+    ],
+    "fastRoute": "GRANTは「操作する権限を与える」。認証・ビュー作成・暗号化と分ける。"
   },
   {
     "n": 26,
@@ -1416,7 +1441,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t026"
       }
-    ]
+    ],
+    "fastRoute": "部品と仕入先の各1件に複数の在庫明細がある。中央の多側は在庫。"
   },
   {
     "n": 27,
@@ -1471,7 +1497,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t027"
       }
-    ]
+    ],
+    "fastRoute": "商品ごとに同番号の在庫が「存在しない」と判定する相関NOT EXISTSを選ぶ。"
   },
   {
     "n": 28,
@@ -1526,7 +1553,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t028-エ"
       }
-    ]
+    ],
+    "fastRoute": "外部キーの目的は参照先のないレコードを防ぐこと。性能や復旧ではなく整合性。"
   },
   {
     "n": 29,
@@ -1581,7 +1609,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t029-エ"
       }
-    ]
+    ],
+    "fastRoute": "媒体障害はバックアップを復元し、更新後情報でロールフォワードする。"
   },
   {
     "n": 30,
@@ -1635,7 +1664,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t030-エ"
       }
-    ]
+    ],
+    "fastRoute": "ルータの経路選択は宛先IP。MACはそのリンク内の配送先。"
   },
   {
     "n": 31,
@@ -1689,7 +1719,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t031-エ"
       }
-    ]
+    ],
+    "fastRoute": "ARPの解決方向はIP→MAC。名前→IPのDNSと分ける。"
   },
   {
     "n": 32,
@@ -1743,7 +1774,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t032-エ"
       }
-    ]
+    ],
+    "fastRoute": "pingはICMPのEcho RequestとEcho Replyを使う。"
   },
   {
     "n": 33,
@@ -1798,7 +1830,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t033-エ"
       }
-    ]
+    ],
+    "fastRoute": "LAN1の次の相手はルータMAC3。最後に届けるIPの宛先はホストBのIP2。"
   },
   {
     "n": 34,
@@ -1853,7 +1886,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t034-エ"
       }
-    ]
+    ],
+    "fastRoute": "隣のAPには1・6・11のように周波数が重なりにくいチャネルを割り当てる。"
   },
   {
     "n": 35,
@@ -1907,7 +1941,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t035-エ"
       }
-    ]
+    ],
+    "fastRoute": "ブルートフォースは鍵候補を全て試す。統計・差分による解析とは異なる。"
   },
   {
     "n": 36,
@@ -1961,7 +1996,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t036-エ"
       }
-    ]
+    ],
+    "fastRoute": "普段と異なる利用なら追加認証を要求するのがリスクベース認証。"
   },
   {
     "n": 37,
@@ -2015,7 +2051,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t037"
       }
-    ]
+    ],
+    "fastRoute": "正規の認証を迂回する侵入口がバックドア。調査技術や経路指定とは別。"
   },
   {
     "n": 38,
@@ -2069,7 +2106,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t038-エ"
       }
-    ]
+    ],
+    "fastRoute": "IDSは侵入の兆候を監視・検知し、管理者へ通知する。"
   },
   {
     "n": 39,
@@ -2124,7 +2162,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t039"
       }
-    ]
+    ],
+    "fastRoute": "情報系から更新を受け、制御系へ配るパッチ管理サーバが両者との中継役。"
   },
   {
     "n": 40,
@@ -2178,7 +2217,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t040"
       }
-    ]
+    ],
+    "fastRoute": "S/MIMEはメールの暗号化と署名。スパム分類や元の文面の復元ではない。"
   },
   {
     "n": 41,
@@ -2233,7 +2273,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t041-エ"
       }
-    ]
+    ],
+    "fastRoute": "SQLの命令と入力値を分ける対策を選ぶ。HTMLやファイルパスの対策と区別。"
   },
   {
     "n": 42,
@@ -2288,7 +2329,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t042-エ"
       }
-    ]
+    ],
+    "fastRoute": "上位からTLS→IPsec→L2TP。図Cに対応する選択肢を選ぶ。"
   },
   {
     "n": 43,
@@ -2342,7 +2384,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t043"
       }
-    ]
+    ],
+    "fastRoute": "「企画・設計から安全性を組み込む」がセキュリティバイデザイン。"
   },
   {
     "n": 44,
@@ -2396,7 +2439,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t044-エ"
       }
-    ]
+    ],
+    "fastRoute": "WAFはWebアプリへ届く攻撃を検査・遮断する。PC内のファイル検査とは別。"
   },
   {
     "n": 45,
@@ -2450,7 +2494,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t045-エ"
       }
-    ]
+    ],
+    "fastRoute": "E-RはEntityとRelationship。実体と関連で対象を表す図。"
   },
   {
     "n": 46,
@@ -2504,7 +2549,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t046-エ"
       }
-    ]
+    ],
+    "fastRoute": "属性と操作を一つに包み、外部への窓口を設けるのがカプセル化。"
   },
   {
     "n": 47,
@@ -2558,7 +2604,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t047-エ"
       }
-    ]
+    ],
+    "fastRoute": "多く出る区分を先に判定すれば、早く終了する入力が増え平均比較回数が減る。"
   },
   {
     "n": 48,
@@ -2612,7 +2659,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t048"
       }
-    ]
+    ],
+    "fastRoute": "「変更後に既存機能への副作用を確認」がリグレッションテスト。"
   },
   {
     "n": 49,
@@ -2666,7 +2714,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t049-エ"
       }
-    ]
+    ],
+    "fastRoute": "非同期通信でページの一部だけを更新する技術はAjax。"
   },
   {
     "n": 50,
@@ -2720,7 +2769,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t050-エ"
       }
-    ]
+    ],
+    "fastRoute": "縦軸が残作業量で、時間とともに0へ減るグラフがバーンダウン。"
   },
   {
     "n": 51,
@@ -2776,7 +2826,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t051"
       }
-    ]
+    ],
+    "fastRoute": "一般に未確定事項の解消とともにリスクは減る。終盤の変更コスト増加とは別。"
   },
   {
     "n": 52,
@@ -2830,7 +2881,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t052"
       }
-    ]
+    ],
+    "fastRoute": "作業を親子の階層へ分解した図はWBS。日程の前後関係の図ではない。"
   },
   {
     "n": 53,
@@ -2885,7 +2937,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t053-エ"
       }
-    ]
+    ],
+    "fastRoute": "FはAとDの両方を待つ。Aの終了からFの開始へダミーを結ぶ。"
   },
   {
     "n": 54,
@@ -2940,7 +2993,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t054-エ"
       }
-    ]
+    ],
+    "fastRoute": "1×4+2×5+1×10=24。その後に補正0.75を掛けて18。"
   },
   {
     "n": 55,
@@ -2995,7 +3049,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t055"
       }
-    ]
+    ],
+    "fastRoute": "分母は予定提供7〜19時の12時間。実稼働9時間なので75％。"
   },
   {
     "n": 56,
@@ -3049,7 +3104,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t056-エ"
       }
-    ]
+    ],
+    "fastRoute": "利用者の近くに置き、言語や現場事情に合う対面支援ができるのがローカル型。"
   },
   {
     "n": 57,
@@ -3104,7 +3160,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t057"
       }
-    ]
+    ],
+    "fastRoute": "入力時のエラー検出なら後工程の手戻りを減らせる。発生元の判断責任も守る。"
   },
   {
     "n": 58,
@@ -3159,7 +3216,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t058-エ"
       }
-    ]
+    ],
+    "fastRoute": "データを生成から活用まで順に追跡する監査技法がウォークスルー。"
   },
   {
     "n": 59,
@@ -3213,7 +3271,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t059-エ"
       }
-    ]
+    ],
+    "fastRoute": "監査人は改善を実施・指示するのでなく、対象部門の改善状況を確認する。"
   },
   {
     "n": 60,
@@ -3268,7 +3327,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t060-エ"
       }
-    ]
+    ],
+    "fastRoute": "委託者自身が要件定義に基づいて受入テストを実施しているかを見る。"
   },
   {
     "n": 61,
@@ -3322,7 +3382,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t061"
       }
-    ]
+    ],
+    "fastRoute": "トランザクション分野の投資は、定型業務の処理効率向上とコスト削減。"
   },
   {
     "n": 62,
@@ -3377,7 +3438,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t062-エ"
       }
-    ]
+    ],
+    "fastRoute": "P2Mは複数案件を連携・統合し、全体の事業価値を高める考え方。"
   },
   {
     "n": 63,
@@ -3431,7 +3493,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t063"
       }
-    ]
+    ],
+    "fastRoute": "所有者が個人、利用目的が業務ならBYOD。"
   },
   {
     "n": 64,
@@ -3486,7 +3549,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t064-エ"
       }
-    ]
+    ],
+    "fastRoute": "5年分の利益合計を投資額で割る。aは135％でdの131.25％を上回る。"
   },
   {
     "n": 65,
@@ -3543,7 +3607,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t065-エ"
       }
-    ]
+    ],
+    "fastRoute": "実績点は27、全て目標どおりなら75。27/75=36％。"
   },
   {
     "n": 66,
@@ -3597,7 +3662,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t066-エ"
       }
-    ]
+    ],
+    "fastRoute": "他社の経営資源を合併・買収で取り込む説明を選ぶ。"
   },
   {
     "n": 67,
@@ -3651,7 +3717,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t067"
       }
-    ]
+    ],
+    "fastRoute": "最小限で作り、計測し、学んで改善する循環がリーンスタートアップ。"
   },
   {
     "n": 68,
@@ -3705,7 +3772,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t068-エ"
       }
-    ]
+    ],
+    "fastRoute": "企業全体の人・物・金・情報を統合して管理するのがERP。"
   },
   {
     "n": 69,
@@ -3759,7 +3827,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t069"
       }
-    ]
+    ],
+    "fastRoute": "大学の研究成果を特許化し企業へ移転する支援がTLOの中心。"
   },
   {
     "n": 70,
@@ -3813,7 +3882,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t070"
       }
-    ]
+    ],
+    "fastRoute": "現実のセンサデータを仮想モデルへ反映し、再現・予測するのがデジタルツイン。"
   },
   {
     "n": 71,
@@ -3868,7 +3938,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t071-エ"
       }
-    ]
+    ],
+    "fastRoute": "セル生産は少人数で多工程を担当し、多品種・柔軟な変更に対応する。"
   },
   {
     "n": 72,
@@ -3922,7 +3993,8 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t072"
       }
-    ]
+    ],
+    "fastRoute": "電波で非接触に読めるICタグを選ぶ。磁気カードやGPSとは別。"
   },
   {
     "n": 73,
@@ -3976,7 +4048,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t073-エ"
       }
-    ]
+    ],
+    "fastRoute": "自然検索で見つけられやすい内容・構造へ改善するのがSEO。広告出稿とは別。"
   },
   {
     "n": 74,
@@ -4031,7 +4104,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t074-エ"
       }
-    ]
+    ],
+    "fastRoute": "ロボット自身が実行結果から作業方法を学ぶ例を選ぶ。接続や遠隔制御だけではない。"
   },
   {
     "n": 75,
@@ -4085,7 +4159,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t075-エ"
       }
-    ]
+    ],
+    "fastRoute": "経営者を監視・統制する仕組みはコーポレートガバナンス。"
   },
   {
     "n": 76,
@@ -4140,7 +4215,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t076-エ"
       }
-    ]
+    ],
+    "fastRoute": "原料PとQを別々の式にし、使用量≤在庫量。利益2x+3yは最大化する目的関数。"
   },
   {
     "n": 77,
@@ -4196,7 +4272,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t077-エ"
       }
-    ]
+    ],
+    "fastRoute": "定額法は(取得10000−残存0)/20。償却累計を引き直さず500千円。"
   },
   {
     "n": 78,
@@ -4251,7 +4328,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t078-エ"
       }
-    ]
+    ],
+    "fastRoute": "営業利益は1500−1000−200=300。営業外収益・費用はまだ足し引きしない。"
   },
   {
     "n": 79,
@@ -4307,7 +4385,8 @@ const QUESTIONS=[
         "chosen": false,
         "termId": "t079-エ"
       }
-    ]
+    ],
+    "fastRoute": "保護「される」ものを選ぶ。解法・言語・規約でなく、具体的なコンパイラのプログラム。"
   },
   {
     "n": 80,
@@ -4361,6 +4440,7 @@ const QUESTIONS=[
         "chosen": true,
         "termId": "t080"
       }
-    ]
+    ],
+    "fastRoute": "派遣元が雇用し、派遣先が指揮命令する関係が派遣。"
   }
 ];

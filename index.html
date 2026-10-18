@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="2022.12.11 FE修了試験・基本情報技術者 午前試験免除・全80問の試験演習と図解復習">
   <title>2022.12.11 FE修了試験｜問題演習と図解復習</title>
-  <link rel="stylesheet" href="styles.css?v=20261017-02">
-  <link rel="stylesheet" href="visuals.css?v=20261017-02">
-  <link rel="stylesheet" href="flow.css?v=20261017-02">
-  <link rel="stylesheet" href="report.css?v=20261017-02">
-  <link rel="stylesheet" href="terms.css?v=20261017-02">
-  <link rel="stylesheet" href="classroom.css?v=20261017-02">
-  <link rel="stylesheet" href="revision.css?v=20261017-02">
+  <link rel="stylesheet" href="styles.css?v=20261018-03">
+  <link rel="stylesheet" href="visuals.css?v=20261018-03">
+  <link rel="stylesheet" href="flow.css?v=20261018-03">
+  <link rel="stylesheet" href="report.css?v=20261018-03">
+  <link rel="stylesheet" href="terms.css?v=20261018-03">
+  <link rel="stylesheet" href="classroom.css?v=20261018-03">
+  <link rel="stylesheet" href="revision.css?v=20261018-03">
+  <link rel="stylesheet" href="enhancements.css?v=20261018-03">
 </head>
 <body>
   <header class="hero">
@@ -87,9 +88,14 @@
     <section id="reviewToolbar" class="toolbar" aria-label="復習問題の絞り込み" hidden>
       <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="用語・問題番号で検索"></label>
       <div id="filters" class="filters"></div>
-      <label class="toggle"><input id="onlyUnlearned" type="checkbox"><span>未理解だけ</span></label>
+      <label class="question-focus">復習対象<select id="questionFocus"><option value="all">全問題</option><option value="wrong">初回で間違えた問題</option><option value="unresolved">再回答で未解決の問題</option><option value="recall">説明をもう一度確認する問題</option></select></label><label class="toggle"><input id="onlyUnlearned" type="checkbox"><span>未理解だけ</span></label>
     </section>
 
+    <section class="study-guide" aria-labelledby="studyGuideTitle">
+      <p class="section-kicker">PAST QUESTIONS → UNDERSTANDING</p><h2 id="studyGuideTitle">解き方を覚え、仕組みを確かめ、説明できるように。</h2>
+      <div class="study-guide-steps"><p><b>1 問題を解く</b><span>初回の正答数を記録する。</span></p><p><b>2 図で理由を確かめる</b><span>最短ルートとア〜エの違いを確認。</span></p><p><b>3 条件を変えて説明する</b><span>18問の条件変更演習と、全80問の説明欄。</span></p></div>
+      <div class="practice-launch"><label for="practiceSelect">条件変更演習</label><select id="practiceSelect"><option value="2">問2 待ち時間と回線利用率</option><option value="4">問4 3乗に比例する計算時間</option><option value="6">問6 偶数パリティ</option><option value="8">問8 バブルソート</option><option value="9">問9 線形探索の流れ図</option><option value="10">問10 再帰関数</option><option value="12">問12 CPUの処理時間</option><option value="13">問13 ベースアドレス方式</option><option value="16">問16 仮想化と資源配分</option><option value="17">問17 タスク間の競合</option><option value="20">問20 リトルエンディアン</option><option value="22">問22 電力量</option><option value="28">問28 外部キーと参照整合性</option><option value="34">問34 無線LANのチャネル設計</option><option value="55">問55 サービスの可用性</option><option value="76">問76 線形計画法の定式化</option><option value="77">問77 定額法の減価償却</option><option value="78">問78 損益計算書の営業利益</option></select><button id="openPractice" type="button" class="primary">演習を開く</button></div><p class="study-guide-note">演習を開くと、その問題の解説・正答が表示されます。初回採点の前に自力で試したい場合は、先に問題へ回答してください。</p>
+    </section>
     <section id="termLearning" class="term-learning">
       <div class="term-head">
         <div>
@@ -102,8 +108,9 @@
       <div class="term-tools choice-tools">
  <label>用語・問題番号を検索<input id="termSearch" type="search" placeholder="例：スラッシング、問18、18"></label>
  <button type="button" id="termSearchButton" class="primary">検索</button><label>問題<select id="termQuestion"><option value="">全80問</option><option value="1">問1</option><option value="2">問2</option><option value="3">問3</option><option value="4">問4</option><option value="5">問5</option><option value="6">問6</option><option value="7">問7</option><option value="8">問8</option><option value="9">問9</option><option value="10">問10</option><option value="11">問11</option><option value="12">問12</option><option value="13">問13</option><option value="14">問14</option><option value="15">問15</option><option value="16">問16</option><option value="17">問17</option><option value="18">問18</option><option value="19">問19</option><option value="20">問20</option><option value="21">問21</option><option value="22">問22</option><option value="23">問23</option><option value="24">問24</option><option value="25">問25</option><option value="26">問26</option><option value="27">問27</option><option value="28">問28</option><option value="29">問29</option><option value="30">問30</option><option value="31">問31</option><option value="32">問32</option><option value="33">問33</option><option value="34">問34</option><option value="35">問35</option><option value="36">問36</option><option value="37">問37</option><option value="38">問38</option><option value="39">問39</option><option value="40">問40</option><option value="41">問41</option><option value="42">問42</option><option value="43">問43</option><option value="44">問44</option><option value="45">問45</option><option value="46">問46</option><option value="47">問47</option><option value="48">問48</option><option value="49">問49</option><option value="50">問50</option><option value="51">問51</option><option value="52">問52</option><option value="53">問53</option><option value="54">問54</option><option value="55">問55</option><option value="56">問56</option><option value="57">問57</option><option value="58">問58</option><option value="59">問59</option><option value="60">問60</option><option value="61">問61</option><option value="62">問62</option><option value="63">問63</option><option value="64">問64</option><option value="65">問65</option><option value="66">問66</option><option value="67">問67</option><option value="68">問68</option><option value="69">問69</option><option value="70">問70</option><option value="71">問71</option><option value="72">問72</option><option value="73">問73</option><option value="74">問74</option><option value="75">問75</option><option value="76">問76</option><option value="77">問77</option><option value="78">問78</option><option value="79">問79</option><option value="80">問80</option></select></label>
+ <label>学習状態<select id="termReviewMode"><option value="all">全て</option><option value="due">今日の復習（予定時刻が到来）</option><option value="weak">不安・説明できない</option><option value="unseen">未学習</option></select></label><button id="todayReview" type="button">今日の復習へ</button>
  <label>カードの範囲<select id="termChoiceScope"><option value="all">全ての選択肢</option><option value="other">正答以外の選択肢</option><option value="chosen">この問題で選ぶ選択肢</option></select></label>
- </div><div class="term-layout">
+ </div><p class="review-schedule-note">カードを評価すると次の復習を予定します。「説明できた」は1→3→7→14→30日へ段階的に延長。「少し不安」は翌日、「説明できない」は10分後。繰返し同日に評価するだけでは段階を進めません。</p><div class="term-layout">
         <aside class="term-side"><section class="term-list-wrap"><h3>カード一覧</h3><div id="termList" class="term-list"></div></section>
           <section class="term-weak">
             <h3>復習におすすめの用語</h3>
@@ -155,7 +162,7 @@
   </main>
 
   <footer>
-    <div class="footer-notes"><p class="release-version">教材バージョン：20261017-02（設問別図解・全選択肢解説版）</p>
+    <div class="footer-notes"><p class="release-version">教材バージョン：20261018-03（条件変更演習・復習予定対応版）</p>
       <p>2022.12.11 FE修了試験（基本情報技術者 午前試験免除）・学習用解説</p>
       <p class="source-note">問題画像：提供された tokurei_Mondai_20221211_FE.pdf（P.3～40）。正答：提供された tokurei_ans_20221211_FE.pdf。解説・図解・用語カードは学習用に作成した教材です。</p>
     </div>
@@ -207,11 +214,12 @@
     <div><button id="cancelSubmit" type="button">戻る</button><button id="confirmSubmit" class="primary" type="button">採点する</button></div>
   </dialog>
 
-  <script src="questions.js?v=20261017-02"></script>
-  <script src="terms.js?v=20261017-02"></script>
-  <script src="app.js?v=20261017-02"></script>
-  <script src="terms-ui.js?v=20261017-02"></script>
-  <script src="learning.js?v=20261017-02"></script>
+  <script src="questions.js?v=20261018-03"></script>
+  <script src="terms.js?v=20261018-03"></script>
+  <script src="app.js?v=20261018-03"></script>
+  <script src="enhancements.js?v=20261018-03"></script>
+  <script src="terms-ui.js?v=20261018-03"></script>
+  <script src="learning.js?v=20261018-03"></script>
 </body>
 </html>
 

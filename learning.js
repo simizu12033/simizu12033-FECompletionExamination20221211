@@ -7,7 +7,8 @@ const STORAGE={
   report:`${STORAGE_PREFIX}-first-report`,
   retryAnswers:`${STORAGE_PREFIX}-retry-answers`,
   retryChecked:`${STORAGE_PREFIX}-retry-checked`,
-  revealed:`${STORAGE_PREFIX}-revealed`
+  revealed:`${STORAGE_PREFIX}-revealed`,
+  depth:`${STORAGE_PREFIX}-depth-study`
 };
 
 const learningState={
@@ -19,7 +20,8 @@ const learningState={
   understood:new Set(readJSON(STORAGE.done,[])),
   filter:"すべて",
   query:"",
-  onlyUnlearned:false
+  onlyUnlearned:false,
+  focus:"all"
 };
 if(learningState.phase==="retry"||learningState.phase==="retryReview")learningState.phase="review";
 
@@ -52,7 +54,16 @@ const retryAnswerCount=()=>QUESTIONS.filter(q=>wasWrong(q)&&learningState.retryA
 const retryCheckedCorrectCount=()=>QUESTIONS.filter(q=>wasWrong(q)&&retryCheckedCorrect(q)).length;
 
 function visible(q){
-  return true;
+  if(!isReview())return true;
+  if(learningState.filter!=="すべて"&&q.field!==learningState.filter)return false;
+  if(learningState.onlyUnlearned&&learningState.understood.has(q.n))return false;
+  if(learningState.focus==='wrong'&&!wasWrong(q))return false;
+  if(learningState.focus==='unresolved'&&!needsRetry(q))return false;
+  if(learningState.focus==='recall'&&FEStudy.recallStatus(q.n)!=='again')return false;
+  const query=learningState.query.trim().toLowerCase();
+  if(!query)return true;
+  if(/^\d+$/.test(query))return q.n===Number(query);
+  return [q.title,q.field,q.summary,...q.choices.map(c=>c.term)].join(' ').toLowerCase().includes(query);
 }
 
 function renderLearning(){
@@ -142,17 +153,13 @@ function renderLearning(){
     node.querySelector(".summary").textContent=q.summary;
     node.querySelector(".reasoning").innerHTML=q.reasoning.map(x=>`<li>${esc(x)}</li>`).join("");
     node.querySelector(".trap p").textContent=q.trap;
-    if(q.deep){
-      const more=document.createElement("section");more.className="deep-explanation";
-      more.innerHTML=`<h3>確認問題</h3><details><summary>理解を確かめる：${esc(q.deep.check)}</summary><p>${esc(q.deep.answer)}</p></details>`;
-      node.querySelector(".explanation").appendChild(more);
-    }
     if(q.reference){const ref=document.createElement("p");ref.innerHTML=`<a href="${esc(q.reference[1])}" target="_blank" rel="noopener">参考：${esc(q.reference[0])}</a>`;node.querySelector(".explanation").appendChild(ref);}
 
     const compare=document.createElement("section");
     compare.className="option-comparison";
     compare.innerHTML=`<h3>ア〜エを比べる</h3><p>用語の意味と、この問題で選ぶ・選ばない理由を確認します。</p><div class="choice-comparison-grid">${q.choices.map(c=>`<article class="choice-comparison ${c.chosen?'chosen':''}"><h4><b>${c.label}</b> ${esc(c.term)}${c.chosen?'<small>この問題で選ぶ</small>':''}</h4><p>${esc(c.meaning)}</p><div>${esc(c.explanation)}</div><a href="#termLearning" data-term-ref="${esc(c.termId)}">この選択肢をカードで学ぶ →</a></article>`).join("")}</div>`;
     node.querySelector(".review-content").appendChild(compare);
+    FEStudy.enhanceQuestion(node,q);
     node.querySelector(".diagram").innerHTML=window.renderRichVisual(q);
     node.querySelector("figcaption").textContent=q.caption;
     const check=node.querySelector(".understand-check input");
@@ -178,7 +185,7 @@ function updatePhasePanel(){
   const retryAnswers=retryAnswerCount();
   const retryCorrect=retryCheckedCorrectCount();
   const totalCorrect=firstScore()+retryCorrect;
-  qs("#reviewToolbar").hidden=true;
+  qs("#reviewToolbar").hidden=!isReview();
   document.querySelectorAll("[data-exam-controls]").forEach(el=>el.hidden=isReview());
   qs("#listTitle").textContent=isReview()?"採点結果と解説":"試験問題";
   qs("#phaseMessage").textContent=isReview()
@@ -201,7 +208,7 @@ function updatePhasePanel(){
   summary.hidden=!isReview();
   qs("#answerLegend").hidden=!isReview();
   if(isReview()){
-    summary.innerHTML=`<div><strong>${totalCorrect}</strong><span>正解（80問中）</span></div><div><strong>${gradedTotal-totalCorrect}</strong><span>不正解</span></div><div><strong>${retryCorrect}</strong><span>再回答での正解</span></div><div><strong>${learningState.understood.size}</strong><span>理解済み</span></div>`;
+    summary.innerHTML=`<div><strong>${firstScore()} / ${gradedTotal}</strong><span>初回の正解数（固定）</span></div><div><strong>${totalCorrect} / ${gradedTotal}</strong><span>再回答採点後の正解数</span></div><div><strong>${gradedTotal-totalCorrect}</strong><span>再回答で未解決</span></div><div><strong>${learningState.understood.size}</strong><span>理解チェック済み（自己評価）</span></div><p class="score-explanation">再回答で${retryCorrect}問改善。初回の成績は書き換えず、学習レポートにも残します。解説を見た状態での正答と初回の正答を区別して確認してください。</p>`;
   }
   document.querySelectorAll("#phaseSteps [data-step]").forEach(el=>{
     el.classList.remove("active","finished");
@@ -222,7 +229,7 @@ function updatePhasePanel(){
 }
 
 function renderLearningMap(){
-  qs("#questionMap").innerHTML=QUESTIONS.map(q=>{
+  qs("#questionMap").innerHTML=QUESTIONS.filter(visible).map(q=>{
     let cls="";
     if(!isReview()&&learningState.answers[q.n])cls="answered";
     if(isReview())cls=wasWrong(q)?(retryCheckedCorrect(q)?"correct":"wrong"):"correct";
@@ -319,6 +326,7 @@ function initLearning(){
     renderLearning();
   };
   qs("#searchInput").oninput=e=>{learningState.query=e.target.value.replace(/^問/,"");renderLearning()};
+  qs("#questionFocus").onchange=e=>{learningState.focus=e.target.value;renderLearning()};
   qs("#onlyUnlearned").onchange=e=>{learningState.onlyUnlearned=e.target.checked;renderLearning()};
   document.querySelectorAll('[data-action="retry-grade"]').forEach(button=>button.onclick=gradeRetryAnswers);
   document.querySelectorAll('[data-action="unanswered"]').forEach(button=>button.onclick=jumpUnanswered);
@@ -333,6 +341,8 @@ function initLearning(){
     learningState.filter="すべて";
     learningState.query="";
     learningState.onlyUnlearned=false;
+    learningState.focus="all";
+    qs("#questionFocus").value="all";
     saveLearning();
     ensureFirstReport();
     qs("#confirmDialog").close();

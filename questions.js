@@ -1944,7 +1944,7 @@ const QUESTIONS=[
       "DHCPは端末の設定、SMTPはメール転送、SNMPは機器の管理。4用語の正式名称から、何を扱うプロトコルかを比べる。"
     ],
     "trap": "SMTPはMail Transfer（メール転送）、SNMPはNetwork Management（ネットワーク管理）。ICMPが担うpingの確認とも区別する。",
-    "caption": "ICMPエコー要求と応答の往復図。色と位置の対応を追って答えの根拠を確認。",
+    "caption": "通信相手と矢印で比較。DHCPは設定配布、ICMPはpingの要求・応答、SMTPはメール転送、SNMPは機器管理。図の矢印は主な用途を示す模式図で、全ての交換手順を表すものではない。",
     "deep": {
       "check": "4つの正式名称を確認した後、端末のIP設定・ping・メール送信・ルータの監視を、それぞれDHCP・ICMP・SMTP・SNMPのどれが担当するか説明できますか？",
       "answer": "IP設定はDHCP（Dynamic Host Configuration Protocol）、pingはICMP（Internet Control Message Protocol）、メール送信はSMTP（Simple Mail Transfer Protocol）、ルータなどの監視・管理はSNMP（Simple Network Management Protocol）。Configuration＝設定、Control Message＝制御メッセージ、Mail Transfer＝メール転送、Network Management＝ネットワーク管理に注目する。"

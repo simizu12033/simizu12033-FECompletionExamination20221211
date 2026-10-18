@@ -52,7 +52,13 @@ const QUESTIONS=[
         "termId": "t001-エ"
       }
     ],
-    "fastRoute": "「ほぼ等しい値の減算」とあれば桁落ち。大きさが離れた値の加算は情報落ちと分ける。"
+    "fastRoute": "「ほぼ等しい値の減算」とあれば桁落ち。大きさが離れた値の加算は情報落ちと分ける。",
+    "termIds": [
+      "t001",
+      "t001-イ",
+      "t001-ウ",
+      "t001-エ"
+    ]
   },
   {
     "n": 2,
@@ -81,7 +87,7 @@ const QUESTIONS=[
         "meaning": "W/T=ρ/(1−ρ)で求める。",
         "explanation": "0.4/0.6=約0.67なので、WはTを超えていない。",
         "chosen": false,
-        "termId": "t002-ア"
+        "termId": "concept-2-0"
       },
       {
         "label": "イ",
@@ -89,7 +95,7 @@ const QUESTIONS=[
         "meaning": "W=Tとなる境界の利用率。",
         "explanation": "0.5/0.5=1。W>Tを解くとρ>0.5なので、境界値としてイを選ぶ。",
         "chosen": true,
-        "termId": "t002"
+        "termId": "concept-2-0"
       },
       {
         "label": "ウ",
@@ -97,7 +103,7 @@ const QUESTIONS=[
         "meaning": "利用率が増えると待ち時間は非線形に増える。",
         "explanation": "0.6/0.4=1.5で既にTを超えるが、初めて超える境界ではない。",
         "chosen": false,
-        "termId": "t002-ウ"
+        "termId": "concept-2-0"
       },
       {
         "label": "エ",
@@ -105,10 +111,14 @@ const QUESTIONS=[
         "meaning": "ρが1へ近づくほど待ち時間は大きくなる。",
         "explanation": "0.7/0.3=約2.33。超える値の一例であって境界値ではない。",
         "chosen": false,
-        "termId": "t002-エ"
+        "termId": "concept-2-0"
       }
     ],
-    "fastRoute": "W>Tへ式を置き換え、ρ/(1−ρ)>1を解く。境界は0.5。"
+    "fastRoute": "W>Tへ式を置き換え、ρ/(1−ρ)>1を解く。境界は0.5。",
+    "termIds": [
+      "concept-2-0",
+      "concept-2-1"
+    ]
   },
   {
     "n": 3,
@@ -137,7 +147,7 @@ const QUESTIONS=[
         "meaning": "2日後の確率は、中間の天気を経由する各確率の積を足す。",
         "explanation": "15％は雨→曇り→晴れの1経路分0.5×0.3だけ。他の経路が抜ける。",
         "chosen": false,
-        "termId": "t003-ア"
+        "termId": "concept-3-2"
       },
       {
         "label": "イ",
@@ -145,7 +155,7 @@ const QUESTIONS=[
         "meaning": "排他的な全経路を漏れなく合計する必要がある。",
         "explanation": "雨→晴れ→晴れ12％と雨→曇り→晴れ15％の和だけでは、雨を経由する6％が抜ける。",
         "chosen": false,
-        "termId": "t003-イ"
+        "termId": "concept-3-2"
       },
       {
         "label": "ウ",
@@ -153,7 +163,7 @@ const QUESTIONS=[
         "meaning": "表の1行は翌日への遷移確率を表す。",
         "explanation": "30％は雨から翌日晴れる確率。2日後ならさらに1段進めて求める。",
         "chosen": false,
-        "termId": "t003-ウ"
+        "termId": "concept-3-2"
       },
       {
         "label": "エ",
@@ -161,10 +171,13 @@ const QUESTIONS=[
         "meaning": "中間状態を3通りに分け、積の和で計算する。",
         "explanation": "0.3×0.4+0.5×0.3+0.2×0.3=0.33。3経路の和なのでエ。",
         "chosen": true,
-        "termId": "t003"
+        "termId": "concept-3-2"
       }
     ],
-    "fastRoute": "雨から「翌日が晴・曇・雨」の3経路へ分け、それぞれの積を足す。"
+    "fastRoute": "雨から「翌日が晴・曇・雨」の3経路へ分け、それぞれの積を足す。",
+    "termIds": [
+      "concept-3-2"
+    ]
   },
   {
     "n": 4,
@@ -193,7 +206,7 @@ const QUESTIONS=[
         "meaning": "次数は入力増加に対する計算量の伸び方を表す。",
         "explanation": "2×10÷4=5は入力10倍を1乗で扱った値。設問は3乗に比例する。",
         "chosen": false,
-        "termId": "t004-ア"
+        "termId": "concept-4-3"
       },
       {
         "label": "イ",
@@ -201,7 +214,7 @@ const QUESTIONS=[
         "meaning": "入力10倍の2乗なら計算量は100倍。",
         "explanation": "2×100÷4=50では2乗を使ってしまう。3乗なので不適切。",
         "chosen": false,
-        "termId": "t004-イ"
+        "termId": "concept-4-3"
       },
       {
         "label": "ウ",
@@ -209,7 +222,7 @@ const QUESTIONS=[
         "meaning": "必要時間は元の時間×計算量倍率÷速度倍率。",
         "explanation": "未知数は10倍なので計算量1000倍。2×1000÷4=500秒。",
         "chosen": true,
-        "termId": "t004"
+        "termId": "concept-4-3"
       },
       {
         "label": "エ",
@@ -217,10 +230,13 @@ const QUESTIONS=[
         "meaning": "計算量倍率と速度倍率を分けて適用する。",
         "explanation": "正しい式は2×10³÷4。5000秒にはならず、倍率を一桁取り違えている。",
         "chosen": false,
-        "termId": "t004-エ"
+        "termId": "concept-4-3"
       }
     ],
-    "fastRoute": "入力は10倍、計算量は10³倍。元の2秒に1000を掛け、速度4倍なので4で割る。"
+    "fastRoute": "入力は10倍、計算量は10³倍。元の2秒に1000を掛け、速度4倍なので4で割る。",
+    "termIds": [
+      "concept-4-3"
+    ]
   },
   {
     "n": 5,
@@ -275,7 +291,14 @@ const QUESTIONS=[
         "termId": "t005-エ"
       }
     ],
-    "fastRoute": "多層の神経回路モデルの重みを学習する説明を選ぶ。ルール・探索・進化との違いを見る。"
+    "fastRoute": "多層の神経回路モデルの重みを学習する説明を選ぶ。ルール・探索・進化との違いを見る。",
+    "termIds": [
+      "t005-ア",
+      "t005-イ",
+      "t005",
+      "t005-エ",
+      "concept-74-44"
+    ]
   },
   {
     "n": 6,
@@ -304,7 +327,7 @@ const QUESTIONS=[
         "meaning": "偶数パリティは付加後の1の総数を偶数にする。",
         "explanation": "7Aの1は5個で奇数。先頭ビットを1にしないアは誤り。",
         "chosen": false,
-        "termId": "t006-ア"
+        "termId": "concept-6-4"
       },
       {
         "label": "イ",
@@ -312,7 +335,7 @@ const QUESTIONS=[
         "meaning": "元が偶数個なら0、奇数個なら1を最上位へ付ける。",
         "explanation": "30は2個、3Fは6個、7Aは5個。付加後は30、3F、FAとなる。",
         "chosen": true,
-        "termId": "t006"
+        "termId": "concept-6-4"
       },
       {
         "label": "ウ",
@@ -320,7 +343,7 @@ const QUESTIONS=[
         "meaning": "16進の最上位ビット1の付加は80を加えることに相当する。",
         "explanation": "30は元の1が偶数個なので、B0に変える必要がない。",
         "chosen": false,
-        "termId": "t006-ウ"
+        "termId": "concept-6-4"
       },
       {
         "label": "エ",
@@ -328,10 +351,13 @@ const QUESTIONS=[
         "meaning": "パリティ方式は偶数と奇数で付加ビットが逆になる。",
         "explanation": "エは全体の1を奇数にする組合せ。設問の偶数パリティではない。",
         "chosen": false,
-        "termId": "t006-エ"
+        "termId": "concept-6-4"
       }
     ],
-    "fastRoute": "各7ビットの1を数える。偶数なら0、奇数なら1を先頭へ付ける。"
+    "fastRoute": "各7ビットの1を数える。偶数なら0、奇数なら1を先頭へ付ける。",
+    "termIds": [
+      "concept-6-4"
+    ]
   },
   {
     "n": 7,
@@ -360,7 +386,7 @@ const QUESTIONS=[
         "meaning": "木は連結で閉路を持たない無向グラフ。",
         "explanation": "アの辺は1–2–3–4–5–1という輪を作るため木ではない。",
         "chosen": false,
-        "termId": "t007-ア"
+        "termId": "concept-7-5"
       },
       {
         "label": "イ",
@@ -368,7 +394,7 @@ const QUESTIONS=[
         "meaning": "5頂点の連結な木の辺数は4本。",
         "explanation": "辺1–2、1–5、2–3、2–4が全頂点を結び、閉路がないのでイ。",
         "chosen": true,
-        "termId": "t007"
+        "termId": "concept-7-5"
       },
       {
         "label": "ウ",
@@ -376,7 +402,7 @@ const QUESTIONS=[
         "meaning": "隣接行列の対称な1の組は1本の無向辺を表す。",
         "explanation": "ウでは1–2–3–4–1の閉路があり、5は3へつながる。連結でも木ではない。",
         "chosen": false,
-        "termId": "t007-ウ"
+        "termId": "concept-7-5"
       },
       {
         "label": "エ",
@@ -384,10 +410,14 @@ const QUESTIONS=[
         "meaning": "木には頂点を巡って元へ戻る経路がない。",
         "explanation": "エは1–2–3–1などの閉路を含むため、木の条件を満たさない。",
         "chosen": false,
-        "termId": "t007-エ"
+        "termId": "concept-7-5"
       }
     ],
-    "fastRoute": "行列の1を辺へ直し、全頂点が連結で閉路がないものを選ぶ。"
+    "fastRoute": "行列の1を辺へ直し、全頂点が連結で閉路がないものを選ぶ。",
+    "termIds": [
+      "concept-7-5",
+      "concept-7-6"
+    ]
   },
   {
     "n": 8,
@@ -443,7 +473,13 @@ const QUESTIONS=[
         "termId": "t008-エ"
       }
     ],
-    "fastRoute": "「隣り合う要素を比較して交換」がバブルソートの見分け方。"
+    "fastRoute": "「隣り合う要素を比較して交換」がバブルソートの見分け方。",
+    "termIds": [
+      "t008-ア",
+      "t008-イ",
+      "t008",
+      "t008-エ"
+    ]
   },
   {
     "n": 9,
@@ -472,7 +508,7 @@ const QUESTIONS=[
         "meaning": "線形探索では添字を1ずつ進め、範囲を超えれば失敗と分かる。",
         "explanation": "全要素で不一致ならNの次へ進んで終了するため、kは1ではなくN+1。",
         "chosen": false,
-        "termId": "t009-ア"
+        "termId": "concept-9-7"
       },
       {
         "label": "イ",
@@ -480,7 +516,7 @@ const QUESTIONS=[
         "meaning": "最後の要素を比較した後の更新に注意する。",
         "explanation": "A(N)も不一致ならkをN+1へ増やしてから範囲外として終了する。",
         "chosen": false,
-        "termId": "t009-イ"
+        "termId": "concept-9-7"
       },
       {
         "label": "ウ",
@@ -488,7 +524,7 @@ const QUESTIONS=[
         "meaning": "先頭から探し、一致した時点で終了すれば最小の添字を返す。",
         "explanation": "1番目にXがあるので、N番目にもあってもk=1で終了する。",
         "chosen": true,
-        "termId": "t009"
+        "termId": "concept-9-7"
       },
       {
         "label": "エ",
@@ -496,10 +532,13 @@ const QUESTIONS=[
         "meaning": "最後の一致を得るには、一致後も探索を続ける必要がある。",
         "explanation": "この図は一致すると直ちに終了するので、Nまでは進まない。",
         "chosen": false,
-        "termId": "t009-エ"
+        "termId": "concept-9-7"
       }
     ],
-    "fastRoute": "開始k=1、一致したら即終了。重複があっても最初の位置で止まる。"
+    "fastRoute": "開始k=1、一致したら即終了。重複があっても最初の位置で止まる。",
+    "termIds": [
+      "concept-9-7"
+    ]
   },
   {
     "n": 10,
@@ -527,7 +566,7 @@ const QUESTIONS=[
         "meaning": "再帰は基底条件から戻り値を順に求める。",
         "explanation": "6はf(3)=3+2+1。求めるf(5)ではない。",
         "chosen": false,
-        "termId": "t010-ア"
+        "termId": "concept-10-8"
       },
       {
         "label": "イ",
@@ -535,7 +574,7 @@ const QUESTIONS=[
         "meaning": "f(n)=n+f(n−1)は1からnまでの累積和になる。",
         "explanation": "5+4だけで止めると9だが、f(4)は4そのものではなく4+3+2+1。",
         "chosen": false,
-        "termId": "t010-イ"
+        "termId": "concept-10-8"
       },
       {
         "label": "ウ",
@@ -543,7 +582,7 @@ const QUESTIONS=[
         "meaning": "f(1)=1を基底条件にして1からnまでを足す。",
         "explanation": "f(5)=5+4+3+2+1=15なのでウ。",
         "chosen": true,
-        "termId": "t010"
+        "termId": "concept-10-8"
       },
       {
         "label": "エ",
@@ -551,10 +590,13 @@ const QUESTIONS=[
         "meaning": "再帰式とnの単純な2乗を区別する。",
         "explanation": "f(5)は5×5ではなく、5から1までの和なので25にならない。",
         "chosen": false,
-        "termId": "t010-エ"
+        "termId": "concept-10-8"
       }
     ],
-    "fastRoute": "f(1)=1まで展開して戻す。f(5)は1〜5の合計15。"
+    "fastRoute": "f(1)=1まで展開して戻す。f(5)は1〜5の合計15。",
+    "termIds": [
+      "concept-10-8"
+    ]
   },
   {
     "n": 11,
@@ -609,7 +651,13 @@ const QUESTIONS=[
         "termId": "t011-エ"
       }
     ],
-    "fastRoute": "タイマ等の外部から来る通知を選ぶ。演算例外・ページフォルト・専用命令と区別。"
+    "fastRoute": "タイマ等の外部から来る通知を選ぶ。演算例外・ページフォルト・専用命令と区別。",
+    "termIds": [
+      "t011",
+      "t011-イ",
+      "t011-ウ",
+      "t011-エ"
+    ]
   },
   {
     "n": 12,
@@ -638,7 +686,7 @@ const QUESTIONS=[
         "meaning": "CPIとクロック周期はともに処理時間へ掛ける。",
         "explanation": "CPI比4/0.5=8と周期比1/4を掛けると2。1/32になる割り方は誤り。",
         "chosen": false,
-        "termId": "t012-ア"
+        "termId": "concept-12-9"
       },
       {
         "label": "イ",
@@ -646,7 +694,7 @@ const QUESTIONS=[
         "meaning": "A/BとB/Aでは比が逆になる。",
         "explanation": "B/Aなら2/4=1/2だが、問うのはAの時間がBの何倍か。",
         "chosen": false,
-        "termId": "t012-イ"
+        "termId": "concept-12-9"
       },
       {
         "label": "ウ",
@@ -654,7 +702,7 @@ const QUESTIONS=[
         "meaning": "処理時間は命令数×CPI×クロック周期。",
         "explanation": "同じ命令数なのでA/B=(4×1)/(0.5×4)=2。",
         "chosen": true,
-        "termId": "t012"
+        "termId": "concept-12-9"
       },
       {
         "label": "エ",
@@ -662,10 +710,14 @@ const QUESTIONS=[
         "meaning": "CPIは1命令に必要な平均クロック数。",
         "explanation": "8はCPI比だけ。周期比1/4も掛ける必要がある。",
         "chosen": false,
-        "termId": "t012-エ"
+        "termId": "concept-12-9"
       }
     ],
-    "fastRoute": "時間=命令数×CPI×周期。同じ命令数なので(4×1)/(0.5×4)=2。"
+    "fastRoute": "時間=命令数×CPI×周期。同じ命令数なので(4×1)/(0.5×4)=2。",
+    "termIds": [
+      "concept-12-9",
+      "concept-12-10"
+    ]
   },
   {
     "n": 13,
@@ -695,7 +747,7 @@ const QUESTIONS=[
         "meaning": "ベース方式はベースレジスタの番号と内容を区別する。",
         "explanation": "1はレジスタ番号で内容は100。1+200の番地201を読んではいけない。",
         "chosen": false,
-        "termId": "t013-ア"
+        "termId": "concept-13-11"
       },
       {
         "label": "イ",
@@ -703,7 +755,7 @@ const QUESTIONS=[
         "meaning": "実効アドレスを計算した後、その番地にある内容を読む。",
         "explanation": "ベース内容100+変位200=300。主記憶の番地300には1300がある。",
         "chosen": true,
-        "termId": "t013"
+        "termId": "concept-13-11"
       },
       {
         "label": "ウ",
@@ -711,7 +763,7 @@ const QUESTIONS=[
         "meaning": "変位はそのままベース内容に足す。",
         "explanation": "番地200の内容1200を実効アドレスに使う方式ではない。",
         "chosen": false,
-        "termId": "t013-ウ"
+        "termId": "concept-13-11"
       },
       {
         "label": "エ",
@@ -719,10 +771,13 @@ const QUESTIONS=[
         "meaning": "メモリ参照を余分に重ねないことが重要。",
         "explanation": "番地300の内容1300をさらにアドレスとして読むと2300だが、このLOADでは行わない。",
         "chosen": false,
-        "termId": "t013-エ"
+        "termId": "concept-13-11"
       }
     ],
-    "fastRoute": "ベースの「番号1」でなく内容100を使う。100+200=番地300から1300を読む。"
+    "fastRoute": "ベースの「番号1」でなく内容100を使う。100+200=番地300から1300を読む。",
+    "termIds": [
+      "concept-13-11"
+    ]
   },
   {
     "n": 14,
@@ -777,7 +832,13 @@ const QUESTIONS=[
         "termId": "t014-エ"
       }
     ],
-    "fastRoute": "「主記憶を複数バンクに分割し、並列アクセス」を選ぶ。"
+    "fastRoute": "「主記憶を複数バンクに分割し、並列アクセス」を選ぶ。",
+    "termIds": [
+      "t014-ア",
+      "t014",
+      "t014-ウ",
+      "t014-エ"
+    ]
   },
   {
     "n": 15,
@@ -805,7 +866,7 @@ const QUESTIONS=[
         "meaning": "DBとのデータの読書きを担当し、業務処理層へ結果を返す。",
         "explanation": "アはデータ加工と表示層への返却までDBアクセス層に担当させている点が誤り。",
         "chosen": false,
-        "termId": "t015-ア"
+        "termId": "concept-15-12"
       },
       {
         "label": "イ",
@@ -813,7 +874,7 @@ const QUESTIONS=[
         "meaning": "業務処理層は業務規則を実行し、データ取得をDBアクセス層へ依頼する。",
         "explanation": "イのSQL文を解釈する役割の割当てが不適切。DBMS等がSQLを処理する。",
         "chosen": false,
-        "termId": "t015-イ"
+        "termId": "concept-15-12"
       },
       {
         "label": "ウ",
@@ -821,7 +882,7 @@ const QUESTIONS=[
         "meaning": "取得データを業務に合わせて加工し、表示の層へ返す。",
         "explanation": "ウが3層構成における業務処理の役割を正しく示す。",
         "chosen": true,
-        "termId": "t015"
+        "termId": "concept-15-12"
       },
       {
         "label": "エ",
@@ -829,10 +890,13 @@ const QUESTIONS=[
         "meaning": "利用者の入力と結果の表示を担当する。",
         "explanation": "エのようにDBアクセス層へ直接SQLで問合せるのは、設問の3層の役割分担ではない。",
         "chosen": false,
-        "termId": "t015-エ"
+        "termId": "concept-15-12"
       }
     ],
-    "fastRoute": "表示はプレゼンテーション、業務の加工はファンクション、取得はDBアクセス層。"
+    "fastRoute": "表示はプレゼンテーション、業務の加工はファンクション、取得はDBアクセス層。",
+    "termIds": [
+      "concept-15-12"
+    ]
   },
   {
     "n": 16,
@@ -861,7 +925,7 @@ const QUESTIONS=[
         "meaning": "負荷14台分を残った台数で分担する。",
         "explanation": "18台稼働なら14/18=約77.8％で、縮退の90％超に届かない。",
         "chosen": false,
-        "termId": "t016-ア"
+        "termId": "concept-16-13"
       },
       {
         "label": "イ",
@@ -869,7 +933,7 @@ const QUESTIONS=[
         "meaning": "停止台数を引いた台数が分母になる。",
         "explanation": "17台稼働なら約82.4％で、まだ90％を超えない。",
         "chosen": false,
-        "termId": "t016-イ"
+        "termId": "concept-16-13"
       },
       {
         "label": "ウ",
@@ -877,7 +941,7 @@ const QUESTIONS=[
         "meaning": "資源使用率のしきい値を最初に超える点を求める。",
         "explanation": "16台なら87.5％。90％より小さいので縮退しない。",
         "chosen": false,
-        "termId": "t016-ウ"
+        "termId": "concept-16-13"
       },
       {
         "label": "エ",
@@ -885,10 +949,13 @@ const QUESTIONS=[
         "meaning": "負荷を一定とすると使用率は14/(20−停止台数)。",
         "explanation": "15台なら約93.3％。4台停止では超えないため最小は5台。",
         "chosen": true,
-        "termId": "t016"
+        "termId": "concept-16-13"
       }
     ],
-    "fastRoute": "総負荷は14台分。停止4台なら87.5％、5台なら93.3％で90％を初めて超える。"
+    "fastRoute": "総負荷は14台分。停止4台なら87.5％、5台なら93.3％で90％を初めて超える。",
+    "termIds": [
+      "concept-16-13"
+    ]
   },
   {
     "n": 17,
@@ -917,7 +984,7 @@ const QUESTIONS=[
         "meaning": "読取りと書込みの間で別タスクが動くと結果が変わる。",
         "explanation": "AとBがともに3を2回読む。Aは6を書き、最後にBが9を書いて最終値9。",
         "chosen": false,
-        "termId": "t017-ア"
+        "termId": "concept-17-14"
       },
       {
         "label": "イ",
@@ -925,7 +992,7 @@ const QUESTIONS=[
         "meaning": "1つの式でも共有変数を複数回読む途中に更新が入り得る。",
         "explanation": "Aがe=3を読む。Bがx=9に更新。Aがf=9を読んで3+9=12を書き込む。",
         "chosen": true,
-        "termId": "t017"
+        "termId": "concept-17-14"
       },
       {
         "label": "ウ",
@@ -933,7 +1000,7 @@ const QUESTIONS=[
         "meaning": "演算に使うローカル値は読んだ時点の値を保持する。",
         "explanation": "Bはh=3を読み、Aが6を書いた後でi=6を読む。Bが3×6=18を書いて終わる。",
         "chosen": false,
-        "termId": "t017-ウ"
+        "termId": "concept-17-14"
       },
       {
         "label": "エ",
@@ -941,10 +1008,14 @@ const QUESTIONS=[
         "meaning": "後で書き込むタスクの値が最終結果になる。",
         "explanation": "Bは先に9を計算済み。Aが6を書いた後にBが9を書き、最終値9。",
         "chosen": false,
-        "termId": "t017-エ"
+        "termId": "concept-17-14"
       }
     ],
-    "fastRoute": "共有xと読取り済みのe・fを別に追う。3を読んだ後に9へ更新され、3+9=12。"
+    "fastRoute": "共有xと読取り済みのe・fを別に追う。3を読んだ後に9へ更新され、3+9=12。",
+    "termIds": [
+      "concept-17-14",
+      "concept-17-15"
+    ]
   },
   {
     "n": 18,
@@ -999,7 +1070,13 @@ const QUESTIONS=[
         "termId": "t018-エ"
       }
     ],
-    "fastRoute": "「不要になっても解放しない」がメモリリーク。ページ交換や領域の分断とは別。"
+    "fastRoute": "「不要になっても解放しない」がメモリリーク。ページ交換や領域の分断とは別。",
+    "termIds": [
+      "t018",
+      "t018-イ",
+      "t018-ウ",
+      "t018-エ"
+    ]
   },
   {
     "n": 19,
@@ -1054,7 +1131,14 @@ const QUESTIONS=[
         "termId": "t019-エ"
       }
     ],
-    "fastRoute": "意味を変えず実行効率を高めるコード生成が最適化。"
+    "fastRoute": "意味を変えず実行効率を高めるコード生成が最適化。",
+    "termIds": [
+      "t019-ア",
+      "t019-イ",
+      "t019",
+      "t019-エ",
+      "concept-79-51"
+    ]
   },
   {
     "n": 20,
@@ -1083,7 +1167,7 @@ const QUESTIONS=[
         "meaning": "エンディアンは複数バイトの値をメモリへ置く順序。",
         "explanation": "アは下位側を先にしても各16ビット内のバイト順が混在し、リトルエンディアンにならない。",
         "chosen": false,
-        "termId": "t020-ア"
+        "termId": "concept-20-16"
       },
       {
         "label": "イ",
@@ -1091,7 +1175,7 @@ const QUESTIONS=[
         "meaning": "リトルエンディアンは低いアドレスに最下位バイトを置く。",
         "explanation": "ABCD1234をAB・CD・12・34へ分け、下位から34・12・CD・ABと並べる。",
         "chosen": true,
-        "termId": "t020"
+        "termId": "concept-20-16"
       },
       {
         "label": "ウ",
@@ -1099,7 +1183,7 @@ const QUESTIONS=[
         "meaning": "バイトは8ビット単位で、その中の16進数字の順は変えない。",
         "explanation": "ウは各バイト内の16進2桁まで逆転している点が誤り。",
         "chosen": false,
-        "termId": "t020-ウ"
+        "termId": "concept-20-16"
       },
       {
         "label": "エ",
@@ -1107,10 +1191,14 @@ const QUESTIONS=[
         "meaning": "ビッグエンディアンは低いアドレスに上位バイトを置く。",
         "explanation": "エはビッグエンディアンの並び。設問ではリトルを選ぶ。",
         "chosen": false,
-        "termId": "t020-エ"
+        "termId": "concept-20-16"
       }
     ],
-    "fastRoute": "AB・CD・12・34をバイトで区切り、下位から34・12・CD・ABへ並べる。"
+    "fastRoute": "AB・CD・12・34をバイトで区切り、下位から34・12・CD・ABへ並べる。",
+    "termIds": [
+      "concept-20-16",
+      "concept-20-17"
+    ]
   },
   {
     "n": 21,
@@ -1138,7 +1226,7 @@ const QUESTIONS=[
         "meaning": "連続信号を一定間隔で測定して離散的な値を得ること。",
         "explanation": "アは意図的な標本化。接点の振動で起きる現象ではない。",
         "chosen": false,
-        "termId": "t021-ア"
+        "termId": "t024"
       },
       {
         "label": "イ",
@@ -1165,7 +1253,13 @@ const QUESTIONS=[
         "termId": "t021-エ"
       }
     ],
-    "fastRoute": "機械式スイッチの接点が短時間にON/OFFを繰り返す現象はチャタリング。"
+    "fastRoute": "機械式スイッチの接点が短時間にON/OFFを繰り返す現象はチャタリング。",
+    "termIds": [
+      "t024",
+      "t021-イ",
+      "t021",
+      "t021-エ"
+    ]
   },
   {
     "n": 22,
@@ -1194,7 +1288,7 @@ const QUESTIONS=[
         "meaning": "電力量Whは電力Wと運転時間hの積。",
         "explanation": "1000Whは運転を1時間だけ数えた値。90〜120分の30分が抜ける。",
         "chosen": false,
-        "termId": "t022-ア"
+        "termId": "concept-22-18"
       },
       {
         "label": "イ",
@@ -1202,7 +1296,7 @@ const QUESTIONS=[
         "meaning": "分を時間へ直すときは60で割る。",
         "explanation": "実運転90分は1.5時間。1.2時間などと扱ってはならない。",
         "chosen": false,
-        "termId": "t022-イ"
+        "termId": "concept-22-18"
       },
       {
         "label": "ウ",
@@ -1210,7 +1304,7 @@ const QUESTIONS=[
         "meaning": "力率1なら電力=電圧×電流。",
         "explanation": "100×10=1000W、実運転は60+30=90分=1.5時間。積は1500Wh。",
         "chosen": true,
-        "termId": "t022"
+        "termId": "concept-22-18"
       },
       {
         "label": "エ",
@@ -1218,10 +1312,14 @@ const QUESTIONS=[
         "meaning": "停止時は電流が流れず、この問題では電力を消費しない。",
         "explanation": "120分全てを運転時間にすると2000Whになるが、30分は停止している。",
         "chosen": false,
-        "termId": "t022-エ"
+        "termId": "concept-22-18"
       }
     ],
-    "fastRoute": "100×10=1000W。運転60+30分を1.5時間へ直して掛ける。"
+    "fastRoute": "100×10=1000W。運転60+30分を1.5時間へ直して掛ける。",
+    "termIds": [
+      "concept-22-18",
+      "concept-22-19"
+    ]
   },
   {
     "n": 23,
@@ -1276,7 +1374,13 @@ const QUESTIONS=[
         "termId": "t023-エ"
       }
     ],
-    "fastRoute": "普段の文章で要求し、文章で応答しているので自然言語インタフェース。"
+    "fastRoute": "普段の文章で要求し、文章で応答しているので自然言語インタフェース。",
+    "termIds": [
+      "t023-ア",
+      "t023",
+      "t023-ウ",
+      "t023-エ"
+    ]
   },
   {
     "n": 24,
@@ -1332,7 +1436,13 @@ const QUESTIONS=[
         "termId": "t024-エ"
       }
     ],
-    "fastRoute": "時間方向を一定間隔で切り出すのは標本化。振幅の段階化は量子化。"
+    "fastRoute": "時間方向を一定間隔で切り出すのは標本化。振幅の段階化は量子化。",
+    "termIds": [
+      "t024-ア",
+      "t024",
+      "t024-ウ",
+      "t024-エ"
+    ]
   },
   {
     "n": 25,
@@ -1387,7 +1497,13 @@ const QUESTIONS=[
         "termId": "t025"
       }
     ],
-    "fastRoute": "GRANTは「操作する権限を与える」。認証・ビュー作成・暗号化と分ける。"
+    "fastRoute": "GRANTは「操作する権限を与える」。認証・ビュー作成・暗号化と分ける。",
+    "termIds": [
+      "t025-ア",
+      "t025-イ",
+      "t025-ウ",
+      "t025"
+    ]
   },
   {
     "n": 26,
@@ -1415,7 +1531,7 @@ const QUESTIONS=[
         "meaning": "外部キーを持つ明細は、多側に対応する。",
         "explanation": "在庫は同じ部品や仕入先に対し複数行を持つため、aを在庫とする配置は逆。",
         "chosen": false,
-        "termId": "t026-ア"
+        "termId": "t045"
       },
       {
         "label": "イ",
@@ -1423,7 +1539,7 @@ const QUESTIONS=[
         "meaning": "1種類の部品に、日付等の違う在庫記録が複数ある。",
         "explanation": "イはa=在庫、b=部品なので、部品から在庫への1対多が表せない。",
         "chosen": false,
-        "termId": "t026-イ"
+        "termId": "t045"
       },
       {
         "label": "ウ",
@@ -1431,7 +1547,7 @@ const QUESTIONS=[
         "meaning": "部品と仕入先の対応の明細を在庫として分離する。",
         "explanation": "中央bは双方から多側になる在庫が適切。b=部品とするウでは関係が逆になる。",
         "chosen": false,
-        "termId": "t026-ウ"
+        "termId": "t045"
       },
       {
         "label": "エ",
@@ -1439,10 +1555,15 @@ const QUESTIONS=[
         "meaning": "部品1件と仕入先1件からそれぞれ複数の在庫明細を参照できる。",
         "explanation": "a=部品、b=在庫、c=仕入先なら、図の1対多・多対1を満たす。",
         "chosen": true,
-        "termId": "t026"
+        "termId": "t045"
       }
     ],
-    "fastRoute": "部品と仕入先の各1件に複数の在庫明細がある。中央の多側は在庫。"
+    "fastRoute": "部品と仕入先の各1件に複数の在庫明細がある。中央の多側は在庫。",
+    "termIds": [
+      "t045",
+      "concept-26-20",
+      "concept-26-21"
+    ]
   },
   {
     "n": 27,
@@ -1471,7 +1592,7 @@ const QUESTIONS=[
         "meaning": "EXISTSは副問合せが1行でも返すかを見る。",
         "explanation": "アは在庫表から選び、商品番号の対応条件もないため、元の商品の差集合にならない。",
         "chosen": false,
-        "termId": "t027-ア"
+        "termId": "concept-27-22"
       },
       {
         "label": "イ",
@@ -1479,7 +1600,7 @@ const QUESTIONS=[
         "meaning": "外側の行に対応させない副問合せの結果は、全行で同じ判定になる。",
         "explanation": "商品表が空かどうかしか見ておらず、商品ごとの在庫有無を調べていない。",
         "chosen": false,
-        "termId": "t027-イ"
+        "termId": "concept-27-22"
       },
       {
         "label": "ウ",
@@ -1487,7 +1608,7 @@ const QUESTIONS=[
         "meaning": "外側の商品と同じ商品番号の在庫が存在するかを調べる。",
         "explanation": "ウは在庫のある商品を選ぶので、NOT INで求める結果と逆。",
         "chosen": false,
-        "termId": "t027-ウ"
+        "termId": "concept-27-22"
       },
       {
         "label": "エ",
@@ -1495,10 +1616,15 @@ const QUESTIONS=[
         "meaning": "同じ商品番号の在庫が1行もない商品を選ぶ。",
         "explanation": "外側の商品ごとに在庫表を照合し、不在なら残すため元のNOT INと対応する。",
         "chosen": true,
-        "termId": "t027"
+        "termId": "concept-27-22"
       }
     ],
-    "fastRoute": "商品ごとに同番号の在庫が「存在しない」と判定する相関NOT EXISTSを選ぶ。"
+    "fastRoute": "商品ごとに同番号の在庫が「存在しない」と判定する相関NOT EXISTSを選ぶ。",
+    "termIds": [
+      "concept-27-22",
+      "concept-27-23",
+      "concept-27-24"
+    ]
   },
   {
     "n": 28,
@@ -1535,7 +1661,7 @@ const QUESTIONS=[
         "meaning": "関連データを近くへ置く等で入出力を効率化する考え方。",
         "explanation": "イは物理的な配置や性能の説明で、外部キーの論理制約の目的ではない。",
         "chosen": false,
-        "termId": "t028-イ"
+        "termId": "t028"
       },
       {
         "label": "ウ",
@@ -1543,7 +1669,7 @@ const QUESTIONS=[
         "meaning": "バックアップやログからデータを復元する仕組み。",
         "explanation": "ウの破壊レコードの回復は外部キーの目的ではない。",
         "chosen": false,
-        "termId": "t028-ウ"
+        "termId": "t028"
       },
       {
         "label": "エ",
@@ -1551,10 +1677,13 @@ const QUESTIONS=[
         "meaning": "記憶領域の分断を整理・抑制する管理。",
         "explanation": "エは格納領域の管理の話。外部キーを定義して断片化を防ぐことはできない。",
         "chosen": false,
-        "termId": "t028-エ"
+        "termId": "t028"
       }
     ],
-    "fastRoute": "外部キーの目的は参照先のないレコードを防ぐこと。性能や復旧ではなく整合性。"
+    "fastRoute": "外部キーの目的は参照先のないレコードを防ぐこと。性能や復旧ではなく整合性。",
+    "termIds": [
+      "t028"
+    ]
   },
   {
     "n": 29,
@@ -1610,7 +1739,13 @@ const QUESTIONS=[
         "termId": "t029-エ"
       }
     ],
-    "fastRoute": "媒体障害はバックアップを復元し、更新後情報でロールフォワードする。"
+    "fastRoute": "媒体障害はバックアップを復元し、更新後情報でロールフォワードする。",
+    "termIds": [
+      "t029-ア",
+      "t029",
+      "t029-ウ",
+      "t029-エ"
+    ]
   },
   {
     "n": 30,
@@ -1638,7 +1773,7 @@ const QUESTIONS=[
         "meaning": "パケットが最終的に向かうIP上の相手を表す。",
         "explanation": "ルータはこれを経路表へ照合して次の転送先を決めるのでア。",
         "chosen": true,
-        "termId": "t030"
+        "termId": "concept-33-25"
       },
       {
         "label": "イ",
@@ -1646,7 +1781,7 @@ const QUESTIONS=[
         "meaning": "同じリンク上でフレームを受け取る相手を表す。",
         "explanation": "次ホップへの配送に使うが、ルータのIP経路選択の基準ではない。",
         "chosen": false,
-        "termId": "t030-イ"
+        "termId": "concept-33-25"
       },
       {
         "label": "ウ",
@@ -1654,7 +1789,7 @@ const QUESTIONS=[
         "meaning": "パケットを送ったIP上の主体を表す。",
         "explanation": "通常の宛先ベースのルーティングで転送先を選ぶ基準は宛先IP。",
         "chosen": false,
-        "termId": "t030-ウ"
+        "termId": "concept-33-25"
       },
       {
         "label": "エ",
@@ -1662,10 +1797,32 @@ const QUESTIONS=[
         "meaning": "そのリンクでフレームを送ったインタフェースの識別子。",
         "explanation": "イーサネット上の発信者であり、最終的な転送先ネットワークを表さない。",
         "chosen": false,
-        "termId": "t030-エ"
+        "termId": "concept-33-25"
       }
     ],
-    "fastRoute": "ルータの経路選択は宛先IP。MACはそのリンク内の配送先。"
+    "fastRoute": "ルータの経路選択は宛先IP。MACはそのリンク内の配送先。",
+    "termIds": [
+      "concept-33-25",
+      "concept-33-26"
+    ],
+    "acronymCompare": [
+      {
+        "id": "concept-33-25",
+        "term": "IPアドレス",
+        "abbreviation": "IP",
+        "fullName": "Internet Protocol",
+        "nameMeaning": "インターネットの通信規約",
+        "role": "IPネットワーク上の通信先や送信元を識別する論理的なアドレス。"
+      },
+      {
+        "id": "concept-33-26",
+        "term": "MACアドレス",
+        "abbreviation": "MAC",
+        "fullName": "Media Access Control",
+        "nameMeaning": "媒体アクセス制御",
+        "role": "同じリンク上でフレームの送信元・宛先を識別するためのアドレス。"
+      }
+    ]
   },
   {
     "n": 31,
@@ -1693,7 +1850,10 @@ const QUESTIONS=[
         "meaning": "同じIPv4リンク上でIPアドレスに対応するMACアドレスを調べる。",
         "explanation": "アがARPの解決方向IP→MACを正しく表す。",
         "chosen": true,
-        "termId": "t031"
+        "termId": "t031",
+        "abbreviation": "ARP",
+        "fullName": "Address Resolution Protocol",
+        "nameMeaning": "アドレス解決プロトコル"
       },
       {
         "label": "イ",
@@ -1701,7 +1861,10 @@ const QUESTIONS=[
         "meaning": "IPアドレスから対応するホスト名等を調べること。",
         "explanation": "イはDNSの逆引きの説明で、ARPではない。",
         "chosen": false,
-        "termId": "t031-イ"
+        "termId": "t031-イ",
+        "abbreviation": "DNS",
+        "fullName": "Domain Name System",
+        "nameMeaning": "ドメイン名の仕組み"
       },
       {
         "label": "ウ",
@@ -1709,7 +1872,10 @@ const QUESTIONS=[
         "meaning": "MACアドレスからIPアドレスを得るために使われたプロトコル。",
         "explanation": "ウは解決方向がARPと逆。現在のアドレス配布ではDHCP等を使う。",
         "chosen": false,
-        "termId": "t031-ウ"
+        "termId": "t031-ウ",
+        "abbreviation": "RARP",
+        "fullName": "Reverse Address Resolution Protocol",
+        "nameMeaning": "逆アドレス解決プロトコル"
       },
       {
         "label": "エ",
@@ -1717,10 +1883,53 @@ const QUESTIONS=[
         "meaning": "ホスト名・ドメイン名からIPアドレスを調べること。",
         "explanation": "エは名前解決であり、MACアドレスを求めるARPとは異なる。",
         "chosen": false,
-        "termId": "t031-エ"
+        "termId": "t031-エ",
+        "abbreviation": "DNS",
+        "fullName": "Domain Name System",
+        "nameMeaning": "ドメイン名の仕組み"
       }
     ],
-    "fastRoute": "ARPの解決方向はIP→MAC。名前→IPのDNSと分ける。"
+    "fastRoute": "ARPの解決方向はIP→MAC。名前→IPのDNSと分ける。",
+    "termIds": [
+      "t031",
+      "t031-イ",
+      "t031-ウ",
+      "t031-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t031",
+        "term": "ARP",
+        "abbreviation": "ARP",
+        "fullName": "Address Resolution Protocol",
+        "nameMeaning": "アドレス解決プロトコル",
+        "role": "同じIPv4リンク上でIPアドレスに対応するMACアドレスを調べる。"
+      },
+      {
+        "id": "t031-イ",
+        "term": "DNSの逆引き",
+        "abbreviation": "DNS",
+        "fullName": "Domain Name System",
+        "nameMeaning": "ドメイン名の仕組み",
+        "role": "IPアドレスから対応するホスト名等を調べること。"
+      },
+      {
+        "id": "t031-ウ",
+        "term": "RARP",
+        "abbreviation": "RARP",
+        "fullName": "Reverse Address Resolution Protocol",
+        "nameMeaning": "逆アドレス解決プロトコル",
+        "role": "MACアドレスからIPアドレスを得るために使われたプロトコル。"
+      },
+      {
+        "id": "t031-エ",
+        "term": "DNSの正引き",
+        "abbreviation": "DNS",
+        "fullName": "Domain Name System",
+        "nameMeaning": "ドメイン名の仕組み",
+        "role": "ホスト名・ドメイン名からIPアドレスを調べること。"
+      }
+    ]
   },
   {
     "n": 32,
@@ -1730,14 +1939,15 @@ const QUESTIONS=[
     "answerText": "ICMP",
     "summary": "pingはICMPのエコー要求とエコー応答を利用し、IPレベルでの到達性などを確認する。",
     "reasoning": [
-      "pingはICMPのエコー要求とエコー応答を利用し、IPレベルでの到達性などを確認する。",
-      "pingはエコー要求と応答を使うためイ。"
+      "pingは相手へICMP Echo Request（エコー要求）を送り、返ってくるICMP Echo Reply（エコー応答）で到達性などを確認する。",
+      "ICMPのCはControl、MはMessage。通信の制御・通知の役割と、pingの状態確認を結び付ける。",
+      "DHCPは端末の設定、SMTPはメール転送、SNMPは機器の管理。4用語の正式名称から、何を扱うプロトコルかを比べる。"
     ],
-    "trap": "TCPやUDPのポートへの接続確認とは異なる。",
+    "trap": "SMTPはMail Transfer（メール転送）、SNMPはNetwork Management（ネットワーク管理）。ICMPが担うpingの確認とも区別する。",
     "caption": "ICMPエコー要求と応答の往復図。色と位置の対応を追って答えの根拠を確認。",
     "deep": {
-      "check": "ICMPと、他の選択肢との違いは？",
-      "answer": "DHCP：端末へIPアドレス・ゲートウェイ等のネットワーク設定を配布する。 ICMP：IP通信に関するエラー通知やエコー要求・応答等を担う。 SMTP：メールサーバ間の転送やメール送信に用いるプロトコル。 SNMP：ネットワーク機器の管理情報を収集・設定するプロトコル。"
+      "check": "4つの正式名称を確認した後、端末のIP設定・ping・メール送信・ルータの監視を、それぞれDHCP・ICMP・SMTP・SNMPのどれが担当するか説明できますか？",
+      "answer": "IP設定はDHCP（Dynamic Host Configuration Protocol）、pingはICMP（Internet Control Message Protocol）、メール送信はSMTP（Simple Mail Transfer Protocol）、ルータなどの監視・管理はSNMP（Simple Network Management Protocol）。Configuration＝設定、Control Message＝制御メッセージ、Mail Transfer＝メール転送、Network Management＝ネットワーク管理に注目する。"
     },
     "imageWidth": 1350,
     "imageHeight": 234,
@@ -1745,37 +1955,89 @@ const QUESTIONS=[
       {
         "label": "ア",
         "term": "DHCP",
-        "meaning": "端末へIPアドレス・ゲートウェイ等のネットワーク設定を配布する。",
-        "explanation": "アは設定を割り当てる仕組みで、pingのエコー要求ではない。",
+        "meaning": "端末へIPアドレス、サブネットマスク、デフォルトゲートウェイなどの設定を自動的に配布するプロトコル。",
+        "explanation": "例：PCをネットワークへ接続したときのアドレス設定。到達確認の応答を返すICMPとは役割が違う。",
         "chosen": false,
-        "termId": "t032-ア"
+        "termId": "t032-ア",
+        "abbreviation": "DHCP",
+        "fullName": "Dynamic Host Configuration Protocol",
+        "nameMeaning": "ホストの設定を動的に行うプロトコル"
       },
       {
         "label": "イ",
         "term": "ICMP",
-        "meaning": "IP通信に関するエラー通知やエコー要求・応答等を担う。",
-        "explanation": "pingはエコー要求と応答を使うためイ。",
+        "meaning": "IP通信に関するエラー通知や状態確認のメッセージを運ぶプロトコル。pingはエコー要求とエコー応答を利用する。",
+        "explanation": "例：pingによる到達確認。返信がない場合も、経路上でICMPが制限されている可能性があり、相手の停止と断定はできない。",
         "chosen": true,
-        "termId": "t032"
+        "termId": "t032",
+        "abbreviation": "ICMP",
+        "fullName": "Internet Control Message Protocol",
+        "nameMeaning": "IP通信の制御メッセージを扱うプロトコル"
       },
       {
         "label": "ウ",
         "term": "SMTP",
-        "meaning": "メールサーバ間の転送やメール送信に用いるプロトコル。",
-        "explanation": "ウはメール用で、到達性を調べるpingとは用途が違う。",
+        "meaning": "電子メールの送信・中継に使うプロトコル。メールクライアントからの送信やメールサーバ間の転送を担う。",
+        "explanation": "Mail Transfer＝メールを運ぶ。メール受信・閲覧に使うPOP3やIMAP、ネットワーク管理のSNMPと区別する。",
         "chosen": false,
-        "termId": "t032-ウ"
+        "termId": "t032-ウ",
+        "abbreviation": "SMTP",
+        "fullName": "Simple Mail Transfer Protocol",
+        "nameMeaning": "メール転送のためのプロトコル"
       },
       {
         "label": "エ",
         "term": "SNMP",
-        "meaning": "ネットワーク機器の管理情報を収集・設定するプロトコル。",
-        "explanation": "エは機器監視・管理用で、pingを実現するICMPとは異なる。",
+        "meaning": "ルータやスイッチなどの管理対象機器から情報を取得・設定し、通知を受けるためのプロトコル。",
+        "explanation": "例：インタフェースの通信量や機器状態を監視する。Network Management＝機器管理であり、SMTPのMail Transferと混同しない。",
         "chosen": false,
-        "termId": "t032-エ"
+        "termId": "t032-エ",
+        "abbreviation": "SNMP",
+        "fullName": "Simple Network Management Protocol",
+        "nameMeaning": "ネットワーク管理のためのプロトコル"
       }
     ],
-    "fastRoute": "pingはICMPのEcho RequestとEcho Replyを使う。"
+    "fastRoute": "pingはICMPのEcho RequestとEcho Replyを使う。",
+    "termIds": [
+      "t032-ア",
+      "t032",
+      "t032-ウ",
+      "t032-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t032-ア",
+        "term": "DHCP",
+        "abbreviation": "DHCP",
+        "fullName": "Dynamic Host Configuration Protocol",
+        "nameMeaning": "ホストの設定を動的に行うプロトコル",
+        "role": "端末へIPアドレス、サブネットマスク、デフォルトゲートウェイなどの設定を自動的に配布するプロトコル。"
+      },
+      {
+        "id": "t032",
+        "term": "ICMP",
+        "abbreviation": "ICMP",
+        "fullName": "Internet Control Message Protocol",
+        "nameMeaning": "IP通信の制御メッセージを扱うプロトコル",
+        "role": "IP通信に関するエラー通知や状態確認のメッセージを運ぶプロトコル。pingはエコー要求とエコー応答を利用する。"
+      },
+      {
+        "id": "t032-ウ",
+        "term": "SMTP",
+        "abbreviation": "SMTP",
+        "fullName": "Simple Mail Transfer Protocol",
+        "nameMeaning": "メール転送のためのプロトコル",
+        "role": "電子メールの送信・中継に使うプロトコル。メールクライアントからの送信やメールサーバ間の転送を担う。"
+      },
+      {
+        "id": "t032-エ",
+        "term": "SNMP",
+        "abbreviation": "SNMP",
+        "fullName": "Simple Network Management Protocol",
+        "nameMeaning": "ネットワーク管理のためのプロトコル",
+        "role": "ルータやスイッチなどの管理対象機器から情報を取得・設定し、通知を受けるためのプロトコル。"
+      }
+    ]
   },
   {
     "n": 33,
@@ -1804,7 +2066,7 @@ const QUESTIONS=[
         "meaning": "MACはそのLANでの次ホップ、IPは最終宛先を指定する。",
         "explanation": "IP2は正しいが、LAN1から直接MAC2へフレームは届かない。まずルータのMAC3へ送る。",
         "chosen": false,
-        "termId": "t033-ア"
+        "termId": "concept-33-25"
       },
       {
         "label": "イ",
@@ -1812,7 +2074,7 @@ const QUESTIONS=[
         "meaning": "MACとIPは異なる層の宛先を表す。",
         "explanation": "MAC2は別LANの相手、IP3はルータ自身。両方ともこのLAN1上の組合せに合わない。",
         "chosen": false,
-        "termId": "t033-イ"
+        "termId": "concept-33-25"
       },
       {
         "label": "ウ",
@@ -1820,7 +2082,7 @@ const QUESTIONS=[
         "meaning": "異なるLANへ送るとき、MACはルータ、IPは受信ホストを指す。",
         "explanation": "LAN1の次ホップはMAC3、最終宛先はホストBのIP2なのでウ。",
         "chosen": true,
-        "termId": "t033"
+        "termId": "concept-33-25"
       },
       {
         "label": "エ",
@@ -1828,10 +2090,32 @@ const QUESTIONS=[
         "meaning": "ルータへ中継を頼むフレームと、ルータ自身宛てのIP通信は別。",
         "explanation": "MAC3は正しいが、IPまでIP3にすると最終宛先がホストBでなくなる。",
         "chosen": false,
-        "termId": "t033-エ"
+        "termId": "concept-33-25"
       }
     ],
-    "fastRoute": "LAN1の次の相手はルータMAC3。最後に届けるIPの宛先はホストBのIP2。"
+    "fastRoute": "LAN1の次の相手はルータMAC3。最後に届けるIPの宛先はホストBのIP2。",
+    "termIds": [
+      "concept-33-25",
+      "concept-33-26"
+    ],
+    "acronymCompare": [
+      {
+        "id": "concept-33-25",
+        "term": "IPアドレス",
+        "abbreviation": "IP",
+        "fullName": "Internet Protocol",
+        "nameMeaning": "インターネットの通信規約",
+        "role": "IPネットワーク上の通信先や送信元を識別する論理的なアドレス。"
+      },
+      {
+        "id": "concept-33-26",
+        "term": "MACアドレス",
+        "abbreviation": "MAC",
+        "fullName": "Media Access Control",
+        "nameMeaning": "媒体アクセス制御",
+        "role": "同じリンク上でフレームの送信元・宛先を識別するためのアドレス。"
+      }
+    ]
   },
   {
     "n": 34,
@@ -1860,7 +2144,7 @@ const QUESTIONS=[
         "meaning": "無線端末は対応するチャネルへ切り替えてアクセスポイントへ接続する。",
         "explanation": "アの設定を同一チャネルへそろえる発想ではなく、干渉しない配置を考える。",
         "chosen": false,
-        "termId": "t034-ア"
+        "termId": "concept-34-27"
       },
       {
         "label": "イ",
@@ -1868,7 +2152,7 @@ const QUESTIONS=[
         "meaning": "2.4GHz帯では近いチャネルの周波数範囲が重なり干渉し得る。",
         "explanation": "1・6・11のように離して配置するイが適切。",
         "chosen": true,
-        "termId": "t034"
+        "termId": "concept-34-27"
       },
       {
         "label": "ウ",
@@ -1876,7 +2160,7 @@ const QUESTIONS=[
         "meaning": "SSIDはネットワークの名前であり、使用周波数を分離する機能ではない。",
         "explanation": "ウはSSIDを変えれば干渉しないとするため誤り。同じチャネルなら影響し得る。",
         "chosen": false,
-        "termId": "t034-ウ"
+        "termId": "concept-34-27"
       },
       {
         "label": "エ",
@@ -1884,10 +2168,32 @@ const QUESTIONS=[
         "meaning": "隣のチャネル同士は周波数が重なることがある。",
         "explanation": "エの1・2・3の連番では干渉を避けにくい。装置の識別より電波設計が重要。",
         "chosen": false,
-        "termId": "t034-エ"
+        "termId": "concept-34-27"
       }
     ],
-    "fastRoute": "隣のAPには1・6・11のように周波数が重なりにくいチャネルを割り当てる。"
+    "fastRoute": "隣のAPには1・6・11のように周波数が重なりにくいチャネルを割り当てる。",
+    "termIds": [
+      "concept-34-27",
+      "concept-34-28"
+    ],
+    "acronymCompare": [
+      {
+        "id": "concept-34-27",
+        "term": "SSID",
+        "abbreviation": "SSID",
+        "fullName": "Service Set Identifier",
+        "nameMeaning": "サービスセットの識別子",
+        "role": "無線LANのネットワークを識別する名前。"
+      },
+      {
+        "id": "concept-34-28",
+        "term": "無線LANチャネル",
+        "abbreviation": "LAN",
+        "fullName": "Local Area Network",
+        "nameMeaning": "限定された範囲のネットワーク",
+        "role": "無線LANが通信に使用する周波数帯の区分。"
+      }
+    ]
   },
   {
     "n": 35,
@@ -1923,7 +2229,7 @@ const QUESTIONS=[
         "meaning": "平文・暗号文・鍵の関係を方程式として利用し、鍵等を求める方法。",
         "explanation": "イは方式の代数的構造を利用するもので、全候補の試行ではない。",
         "chosen": false,
-        "termId": "t035-イ"
+        "termId": "t035"
       },
       {
         "label": "ウ",
@@ -1942,7 +2248,12 @@ const QUESTIONS=[
         "termId": "t035-エ"
       }
     ],
-    "fastRoute": "ブルートフォースは鍵候補を全て試す。統計・差分による解析とは異なる。"
+    "fastRoute": "ブルートフォースは鍵候補を全て試す。統計・差分による解析とは異なる。",
+    "termIds": [
+      "t035",
+      "t035-ウ",
+      "t035-エ"
+    ]
   },
   {
     "n": 36,
@@ -1978,7 +2289,7 @@ const QUESTIONS=[
         "meaning": "利用状況によらず、同じ手順で本人確認する運用。",
         "explanation": "イは危険度に応じた追加確認をしないため、リスクベース認証ではない。",
         "chosen": false,
-        "termId": "t036-イ"
+        "termId": "t036-ア"
       },
       {
         "label": "ウ",
@@ -1994,10 +2305,14 @@ const QUESTIONS=[
         "meaning": "本人確認を省いてアクセスさせることは、危険度評価による認証強化とは違う。",
         "explanation": "エは緊急なら認証なしで使えるとし、安全な本人確認を担保できない。",
         "chosen": false,
-        "termId": "t036-エ"
+        "termId": "t036-ア"
       }
     ],
-    "fastRoute": "普段と異なる利用なら追加認証を要求するのがリスクベース認証。"
+    "fastRoute": "普段と異なる利用なら追加認証を要求するのがリスクベース認証。",
+    "termIds": [
+      "t036-ア",
+      "t036"
+    ]
   },
   {
     "n": 37,
@@ -2052,7 +2367,13 @@ const QUESTIONS=[
         "termId": "t037"
       }
     ],
-    "fastRoute": "正規の認証を迂回する侵入口がバックドア。調査技術や経路指定とは別。"
+    "fastRoute": "正規の認証を迂回する侵入口がバックドア。調査技術や経路指定とは別。",
+    "termIds": [
+      "t037-ア",
+      "t037-イ",
+      "t037-ウ",
+      "t037"
+    ]
   },
   {
     "n": 38,
@@ -2080,7 +2401,7 @@ const QUESTIONS=[
         "meaning": "導入済み製品が最新かを確認し、更新管理へ役立てる。",
         "explanation": "アはバージョン管理で、侵入の監視・検知そのものではない。",
         "chosen": false,
-        "termId": "t038-ア"
+        "termId": "t038-イ"
       },
       {
         "label": "イ",
@@ -2096,7 +2417,10 @@ const QUESTIONS=[
         "meaning": "サーバやネットワークを監視し、侵入・侵害の兆候を検出して通知する。",
         "explanation": "ウがIntrusion Detection Systemの機能に一致。",
         "chosen": true,
-        "termId": "t038"
+        "termId": "t038",
+        "abbreviation": "IDS",
+        "fullName": "Intrusion Detection System",
+        "nameMeaning": "侵入検知システム"
       },
       {
         "label": "エ",
@@ -2104,10 +2428,14 @@ const QUESTIONS=[
         "meaning": "対策状況等を入力し、組織の取組みや不足を評価する。",
         "explanation": "エは体制の自己評価であり、不正通信を検知するIDSではない。",
         "chosen": false,
-        "termId": "t038-エ"
+        "termId": "t038-イ"
       }
     ],
-    "fastRoute": "IDSは侵入の兆候を監視・検知し、管理者へ通知する。"
+    "fastRoute": "IDSは侵入の兆候を監視・検知し、管理者へ通知する。",
+    "termIds": [
+      "t038-イ",
+      "t038"
+    ]
   },
   {
     "n": 39,
@@ -2163,7 +2491,32 @@ const QUESTIONS=[
         "termId": "t039"
       }
     ],
-    "fastRoute": "情報系から更新を受け、制御系へ配るパッチ管理サーバが両者との中継役。"
+    "fastRoute": "情報系から更新を受け、制御系へ配るパッチ管理サーバが両者との中継役。",
+    "termIds": [
+      "t039-ア",
+      "t039-イ",
+      "t039-ウ",
+      "t039",
+      "concept-39-52"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t039-イ",
+        "term": "HMI",
+        "abbreviation": "HMI",
+        "fullName": "Human Machine Interface",
+        "nameMeaning": "人と機械の接点",
+        "role": "人が機械やシステムの状態を確認し、操作するためのインタフェース。"
+      },
+      {
+        "id": "concept-39-52",
+        "term": "DMZ",
+        "abbreviation": "DMZ",
+        "fullName": "Demilitarized Zone",
+        "nameMeaning": "非武装地帯に由来する名称",
+        "role": "外部に公開するサーバなどを配置するために、内部ネットワークから分離したネットワーク領域。"
+      }
+    ]
   },
   {
     "n": 40,
@@ -2199,7 +2552,7 @@ const QUESTIONS=[
         "meaning": "変更前の内容を取り戻すには保存済みの原本やバックアップ等が必要。",
         "explanation": "電子署名は改ざんの有無を検証できても、元の内容を復元するものではない。",
         "chosen": false,
-        "termId": "t040-イ"
+        "termId": "t040-ア"
       },
       {
         "label": "ウ",
@@ -2215,10 +2568,18 @@ const QUESTIONS=[
         "meaning": "公開鍵暗号や電子署名を用い、メールの機密性や真正性・完全性を確認する規格。",
         "explanation": "エのメール内容の暗号化とデジタル署名が該当する。",
         "chosen": true,
-        "termId": "t040"
+        "termId": "t040",
+        "abbreviation": "S/MIME",
+        "fullName": "Secure/Multipurpose Internet Mail Extensions",
+        "nameMeaning": "メールの暗号化・電子署名のための拡張"
       }
     ],
-    "fastRoute": "S/MIMEはメールの暗号化と署名。スパム分類や元の文面の復元ではない。"
+    "fastRoute": "S/MIMEはメールの暗号化と署名。スパム分類や元の文面の復元ではない。",
+    "termIds": [
+      "t040-ア",
+      "t040-ウ",
+      "t040"
+    ]
   },
   {
     "n": 41,
@@ -2274,7 +2635,31 @@ const QUESTIONS=[
         "termId": "t041-エ"
       }
     ],
-    "fastRoute": "SQLの命令と入力値を分ける対策を選ぶ。HTMLやファイルパスの対策と区別。"
+    "fastRoute": "SQLの命令と入力値を分ける対策を選ぶ。HTMLやファイルパスの対策と区別。",
+    "termIds": [
+      "t041",
+      "t041-イ",
+      "t041-ウ",
+      "t041-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t041",
+        "term": "SQLインジェクション",
+        "abbreviation": "SQL",
+        "fullName": "Structured Query Language",
+        "nameMeaning": "構造化問合せ言語",
+        "role": "入力値がSQLの構文として解釈され、意図しないデータ参照や更新などを引き起こす攻撃。"
+      },
+      {
+        "id": "t041-イ",
+        "term": "XSS（クロスサイトスクリプティング）",
+        "abbreviation": "XSS",
+        "fullName": "Cross-Site Scripting",
+        "nameMeaning": "サイトをまたぐスクリプト実行に由来する名称",
+        "role": "Webページに不正なスクリプトなどを混入させ、閲覧者のブラウザ上で実行させる攻撃。"
+      }
+    ]
   },
   {
     "n": 42,
@@ -2303,7 +2688,7 @@ const QUESTIONS=[
         "meaning": "プロトコルの比較では、それぞれが保護・カプセル化する層を見る。",
         "explanation": "AはIPsec・L2TP・TLSの順で、TLSを最下位に置いており逆。",
         "chosen": false,
-        "termId": "t042-ア"
+        "termId": "concept-42-29"
       },
       {
         "label": "イ",
@@ -2311,7 +2696,7 @@ const QUESTIONS=[
         "meaning": "IPsecはIPを扱うネットワーク層の仕組み。",
         "explanation": "BはIPsecをTLSより上に置いており、相対的な位置関係が不適切。",
         "chosen": false,
-        "termId": "t042-イ"
+        "termId": "concept-42-29"
       },
       {
         "label": "ウ",
@@ -2319,7 +2704,7 @@ const QUESTIONS=[
         "meaning": "TLSは上位、IPsecはネットワーク層、L2TPはデータリンク層側。",
         "explanation": "上からTLS→IPsec→L2TPのCに対応するウが正答。",
         "chosen": true,
-        "termId": "t042"
+        "termId": "concept-42-29"
       },
       {
         "label": "エ",
@@ -2327,10 +2712,32 @@ const QUESTIONS=[
         "meaning": "L2TPのL2はLayer 2を表す。",
         "explanation": "DはL2TPをIPsecより上位に置いており、ネットワーク層とリンク層の関係が逆。",
         "chosen": false,
-        "termId": "t042-エ"
+        "termId": "concept-42-29"
       }
     ],
-    "fastRoute": "上位からTLS→IPsec→L2TP。図Cに対応する選択肢を選ぶ。"
+    "fastRoute": "上位からTLS→IPsec→L2TP。図Cに対応する選択肢を選ぶ。",
+    "termIds": [
+      "concept-42-29",
+      "concept-42-30"
+    ],
+    "acronymCompare": [
+      {
+        "id": "concept-42-29",
+        "term": "OSI参照モデル",
+        "abbreviation": "OSI",
+        "fullName": "Open Systems Interconnection",
+        "nameMeaning": "開放型システム間相互接続",
+        "role": "通信の機能を物理層からアプリケーション層までの7階層に整理したモデル。"
+      },
+      {
+        "id": "concept-42-30",
+        "term": "VPN",
+        "abbreviation": "VPN",
+        "fullName": "Virtual Private Network",
+        "nameMeaning": "仮想私設網",
+        "role": "共有の通信基盤上に、論理的に分離された私設ネットワークを構成する技術。"
+      }
+    ]
   },
   {
     "n": 43,
@@ -2358,7 +2765,7 @@ const QUESTIONS=[
         "meaning": "システムの設定・実装等の弱点を検査する活動。",
         "explanation": "アは開発後の診断。企画や設計から安全性を組み込む考え方とは異なる。",
         "chosen": false,
-        "termId": "t043-ア"
+        "termId": "t038-イ"
       },
       {
         "label": "イ",
@@ -2366,7 +2773,7 @@ const QUESTIONS=[
         "meaning": "リスクを特定・分析・評価し、必要に応じて対策を行う。",
         "explanation": "イは開発後の評価と改修を説明している。",
         "chosen": false,
-        "termId": "t043-イ"
+        "termId": "t038-イ"
       },
       {
         "label": "ウ",
@@ -2374,7 +2781,7 @@ const QUESTIONS=[
         "meaning": "独立した評価から指摘を得て、運用やシステムを改善する。",
         "explanation": "ウは運用中の改善の説明で、設計時からの組込みという中心点がない。",
         "chosen": false,
-        "termId": "t043-ウ"
+        "termId": "t038-イ"
       },
       {
         "label": "エ",
@@ -2385,7 +2792,11 @@ const QUESTIONS=[
         "termId": "t043"
       }
     ],
-    "fastRoute": "「企画・設計から安全性を組み込む」がセキュリティバイデザイン。"
+    "fastRoute": "「企画・設計から安全性を組み込む」がセキュリティバイデザイン。",
+    "termIds": [
+      "t038-イ",
+      "t043"
+    ]
   },
   {
     "n": 44,
@@ -2413,7 +2824,10 @@ const QUESTIONS=[
         "meaning": "Web通信を検査し、Webアプリケーションへの攻撃を検知・阻止する。",
         "explanation": "アがWeb Application Firewallの役割に一致する。",
         "chosen": true,
-        "termId": "t044"
+        "termId": "t044",
+        "abbreviation": "WAF",
+        "fullName": "Web Application Firewall",
+        "nameMeaning": "Webアプリケーション用のファイアウォール"
       },
       {
         "label": "イ",
@@ -2421,7 +2835,7 @@ const QUESTIONS=[
         "meaning": "PC内でブラウザの通信や動作に介入する攻撃へ対処する機能。",
         "explanation": "イは端末内での防御の説明で、Webアプリへの通信を守るWAFの役割とは異なる。",
         "chosen": false,
-        "termId": "t044-イ"
+        "termId": "t044"
       },
       {
         "label": "ウ",
@@ -2429,7 +2843,7 @@ const QUESTIONS=[
         "meaning": "OSの認証ログ等を監視して不正アクセスの兆候を調べる。",
         "explanation": "ウはホストの認証監視。WAFが主に検査するHTTP等の通信とは対象が異なる。",
         "chosen": false,
-        "termId": "t044-ウ"
+        "termId": "t044"
       },
       {
         "label": "エ",
@@ -2440,7 +2854,11 @@ const QUESTIONS=[
         "termId": "t044-エ"
       }
     ],
-    "fastRoute": "WAFはWebアプリへ届く攻撃を検査・遮断する。PC内のファイル検査とは別。"
+    "fastRoute": "WAFはWebアプリへ届く攻撃を検査・遮断する。PC内のファイル検査とは別。",
+    "termIds": [
+      "t044",
+      "t044-エ"
+    ]
   },
   {
     "n": 45,
@@ -2484,7 +2902,10 @@ const QUESTIONS=[
         "meaning": "実体と実体間の関連を表し、対象世界のデータ構造をモデル化する。",
         "explanation": "ウがEntity-Relationshipの二つの概念を示している。",
         "chosen": true,
-        "termId": "t045"
+        "termId": "t045",
+        "abbreviation": "E-R",
+        "fullName": "Entity-Relationship",
+        "nameMeaning": "実体と関連"
       },
       {
         "label": "エ",
@@ -2492,10 +2913,37 @@ const QUESTIONS=[
         "meaning": "データがどこからどこへ流れ、どの処理を通るかを表す図。",
         "explanation": "エのデータの流れはData Flow Diagramの説明。",
         "chosen": false,
-        "termId": "t045-エ"
+        "termId": "t045-エ",
+        "abbreviation": "DFD",
+        "fullName": "Data Flow Diagram",
+        "nameMeaning": "データの流れを表す図"
       }
     ],
-    "fastRoute": "E-RはEntityとRelationship。実体と関連で対象を表す図。"
+    "fastRoute": "E-RはEntityとRelationship。実体と関連で対象を表す図。",
+    "termIds": [
+      "t045-ア",
+      "t045-イ",
+      "t045",
+      "t045-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t045",
+        "term": "E-R図",
+        "abbreviation": "E-R",
+        "fullName": "Entity-Relationship",
+        "nameMeaning": "実体と関連",
+        "role": "実体と実体間の関連を表し、対象世界のデータ構造をモデル化する。"
+      },
+      {
+        "id": "t045-エ",
+        "term": "DFD",
+        "abbreviation": "DFD",
+        "fullName": "Data Flow Diagram",
+        "nameMeaning": "データの流れを表す図",
+        "role": "データがどこからどこへ流れ、どの処理を通るかを表す図。"
+      }
+    ]
   },
   {
     "n": 46,
@@ -2550,7 +2998,13 @@ const QUESTIONS=[
         "termId": "t046-エ"
       }
     ],
-    "fastRoute": "属性と操作を一つに包み、外部への窓口を設けるのがカプセル化。"
+    "fastRoute": "属性と操作を一つに包み、外部への窓口を設けるのがカプセル化。",
+    "termIds": [
+      "t046",
+      "t046-イ",
+      "t046-ウ",
+      "t046-エ"
+    ]
   },
   {
     "n": 47,
@@ -2578,7 +3032,7 @@ const QUESTIONS=[
         "meaning": "平均比較回数は各区分の確率×その区分までの比較回数の和。",
         "explanation": "アは最頻の区分より先に中頻度を置くため、平均回数を最小にしない。",
         "chosen": false,
-        "termId": "t047-ア"
+        "termId": "concept-9-7"
       },
       {
         "label": "イ",
@@ -2586,7 +3040,7 @@ const QUESTIONS=[
         "meaning": "多く出る区分ほど前へ置くと、少ない比較で終わる入力が増える。",
         "explanation": "イの順が平均比較回数を小さくする。",
         "chosen": true,
-        "termId": "t047"
+        "termId": "concept-9-7"
       },
       {
         "label": "ウ",
@@ -2594,7 +3048,7 @@ const QUESTIONS=[
         "meaning": "まれな入力を早く判定しても、多数の入力が後ろまで進む。",
         "explanation": "ウでは平均比較回数が増えるため逆効果。",
         "chosen": false,
-        "termId": "t047-ウ"
+        "termId": "concept-9-7"
       },
       {
         "label": "エ",
@@ -2602,10 +3056,14 @@ const QUESTIONS=[
         "meaning": "比較を順番に行い一致で終了するなら、順序が平均回数に影響する。",
         "explanation": "エのどの順序でも同じという記述は誤り。",
         "chosen": false,
-        "termId": "t047-エ"
+        "termId": "concept-9-7"
       }
     ],
-    "fastRoute": "多く出る区分を先に判定すれば、早く終了する入力が増え平均比較回数が減る。"
+    "fastRoute": "多く出る区分を先に判定すれば、早く終了する入力が増え平均比較回数が減る。",
+    "termIds": [
+      "concept-9-7",
+      "concept-47-31"
+    ]
   },
   {
     "n": 48,
@@ -2660,7 +3118,13 @@ const QUESTIONS=[
         "termId": "t048"
       }
     ],
-    "fastRoute": "「変更後に既存機能への副作用を確認」がリグレッションテスト。"
+    "fastRoute": "「変更後に既存機能への副作用を確認」がリグレッションテスト。",
+    "termIds": [
+      "t048-ア",
+      "t048-イ",
+      "t048-ウ",
+      "t048"
+    ]
   },
   {
     "n": 49,
@@ -2688,7 +3152,10 @@ const QUESTIONS=[
         "meaning": "JavaScriptの非同期通信でデータを得て、ページの一部を更新する手法。",
         "explanation": "画面全体の遷移を伴わない更新なのでア。",
         "chosen": true,
-        "termId": "t049"
+        "termId": "t049",
+        "abbreviation": "Ajax",
+        "fullName": "Asynchronous JavaScript and XML",
+        "nameMeaning": "JavaScriptとXMLによる非同期処理"
       },
       {
         "label": "イ",
@@ -2696,7 +3163,10 @@ const QUESTIONS=[
         "meaning": "文字・色・余白・配置など、Webページの見た目を指定する言語。",
         "explanation": "イはスタイル指定で、非同期通信によるデータ更新の仕組みではない。",
         "chosen": false,
-        "termId": "t049-イ"
+        "termId": "t049-イ",
+        "abbreviation": "CSS",
+        "fullName": "Cascading Style Sheets",
+        "nameMeaning": "スタイルを段階的に適用する指定"
       },
       {
         "label": "ウ",
@@ -2704,7 +3174,10 @@ const QUESTIONS=[
         "meaning": "記事や更新情報を配信し、購読できるようにするデータ形式。",
         "explanation": "ウは更新通知の形式で、ページ内の非同期操作を実装する技術ではない。",
         "chosen": false,
-        "termId": "t049-ウ"
+        "termId": "t049-ウ",
+        "abbreviation": "RSS",
+        "fullName": "Really Simple Syndication",
+        "nameMeaning": "更新情報などの配信（RSS 2.0での名称）"
       },
       {
         "label": "エ",
@@ -2712,10 +3185,53 @@ const QUESTIONS=[
         "meaning": "人のつながりや情報発信・交流を中心とするネットワークサービス。",
         "explanation": "エはサービスの種類。Ajaxという画面更新の手法とは異なる。",
         "chosen": false,
-        "termId": "t049-エ"
+        "termId": "t049-エ",
+        "abbreviation": "SNS",
+        "fullName": "Social Networking Service",
+        "nameMeaning": "人のつながりを支援するサービス"
       }
     ],
-    "fastRoute": "非同期通信でページの一部だけを更新する技術はAjax。"
+    "fastRoute": "非同期通信でページの一部だけを更新する技術はAjax。",
+    "termIds": [
+      "t049",
+      "t049-イ",
+      "t049-ウ",
+      "t049-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t049",
+        "term": "Ajax",
+        "abbreviation": "Ajax",
+        "fullName": "Asynchronous JavaScript and XML",
+        "nameMeaning": "JavaScriptとXMLによる非同期処理",
+        "role": "JavaScriptの非同期通信でデータを得て、ページの一部を更新する手法。"
+      },
+      {
+        "id": "t049-イ",
+        "term": "CSS",
+        "abbreviation": "CSS",
+        "fullName": "Cascading Style Sheets",
+        "nameMeaning": "スタイルを段階的に適用する指定",
+        "role": "文字・色・余白・配置など、Webページの見た目を指定する言語。"
+      },
+      {
+        "id": "t049-ウ",
+        "term": "RSS",
+        "abbreviation": "RSS",
+        "fullName": "Really Simple Syndication",
+        "nameMeaning": "更新情報などの配信（RSS 2.0での名称）",
+        "role": "記事や更新情報を配信し、購読できるようにするデータ形式。"
+      },
+      {
+        "id": "t049-エ",
+        "term": "SNS",
+        "abbreviation": "SNS",
+        "fullName": "Social Networking Service",
+        "nameMeaning": "人のつながりを支援するサービス",
+        "role": "人のつながりや情報発信・交流を中心とするネットワークサービス。"
+      }
+    ]
   },
   {
     "n": 50,
@@ -2751,7 +3267,7 @@ const QUESTIONS=[
         "meaning": "工程の時期によって見つかる不具合等の増減を示す図。",
         "explanation": "イは縦軸が発生不具合数で、残作業量ではない。",
         "chosen": false,
-        "termId": "t050-イ"
+        "termId": "t050"
       },
       {
         "label": "ウ",
@@ -2767,10 +3283,14 @@ const QUESTIONS=[
         "meaning": "期間ごとの必要人員を示す資源計画の図。",
         "explanation": "エは縦軸が要員数で、残作業を表していない。",
         "chosen": false,
-        "termId": "t050-エ"
+        "termId": "t050"
       }
     ],
-    "fastRoute": "縦軸が残作業量で、時間とともに0へ減るグラフがバーンダウン。"
+    "fastRoute": "縦軸が残作業量で、時間とともに0へ減るグラフがバーンダウン。",
+    "termIds": [
+      "t050",
+      "t050-ウ"
+    ]
   },
   {
     "n": 51,
@@ -2800,7 +3320,7 @@ const QUESTIONS=[
         "meaning": "多くのプロジェクトでは初期と終盤より、作業が集中する中盤に人員投入が増える。",
         "explanation": "アの開始時が最多で進むと減るという一般化は不適切。",
         "chosen": false,
-        "termId": "t051-ア"
+        "termId": "concept-51-32"
       },
       {
         "label": "イ",
@@ -2808,7 +3328,7 @@ const QUESTIONS=[
         "meaning": "一般に初期ほど、低い変更コストで成果物へ影響を与えやすい。",
         "explanation": "イは完了直前に無費用での影響力が最大となるとし、傾向が逆。",
         "chosen": false,
-        "termId": "t051-イ"
+        "termId": "concept-51-32"
       },
       {
         "label": "ウ",
@@ -2816,7 +3336,7 @@ const QUESTIONS=[
         "meaning": "成果物が具体化するほど、変更に伴う手戻りや影響が大きくなりやすい。",
         "explanation": "ウの完了に近づくほど影響が小さくなるという記述は逆。",
         "chosen": false,
-        "termId": "t051-ウ"
+        "termId": "concept-51-32"
       },
       {
         "label": "エ",
@@ -2824,10 +3344,13 @@ const QUESTIONS=[
         "meaning": "初期の未確定事項が進行とともに明らかになり、一般にリスクは減少する。",
         "explanation": "エがライフサイクルに伴うリスクの傾向として適切。",
         "chosen": true,
-        "termId": "t051"
+        "termId": "concept-51-32"
       }
     ],
-    "fastRoute": "一般に未確定事項の解消とともにリスクは減る。終盤の変更コスト増加とは別。"
+    "fastRoute": "一般に未確定事項の解消とともにリスクは減る。終盤の変更コスト増加とは別。",
+    "termIds": [
+      "concept-51-32"
+    ]
   },
   {
     "n": 52,
@@ -2855,7 +3378,10 @@ const QUESTIONS=[
         "meaning": "作業の所要時間と依存関係から、全体の最短完了時間や余裕を分析する手法。",
         "explanation": "アはクリティカルパスの分析。図の階層的な作業分解ではない。",
         "chosen": false,
-        "termId": "t052-ア"
+        "termId": "t052-ア",
+        "abbreviation": "CPM",
+        "fullName": "Critical Path Method",
+        "nameMeaning": "クリティカルパス法"
       },
       {
         "label": "イ",
@@ -2863,7 +3389,10 @@ const QUESTIONS=[
         "meaning": "出来高を金額で表し、計画・実績費用と比べて進捗やコストを評価する。",
         "explanation": "イは価値ベースの進捗管理で、WBSの分解図ではない。",
         "chosen": false,
-        "termId": "t052-イ"
+        "termId": "t052-イ",
+        "abbreviation": "EVM",
+        "fullName": "Earned Value Management",
+        "nameMeaning": "出来高管理"
       },
       {
         "label": "ウ",
@@ -2871,7 +3400,10 @@ const QUESTIONS=[
         "meaning": "作業の前後関係をネットワークで表し、日程を計画・分析する。",
         "explanation": "ウは依存関係の管理。親子の階層分解とは異なる。",
         "chosen": false,
-        "termId": "t052-ウ"
+        "termId": "t052-ウ",
+        "abbreviation": "PERT",
+        "fullName": "Program Evaluation and Review Technique",
+        "nameMeaning": "計画の評価・検討のための手法"
       },
       {
         "label": "エ",
@@ -2879,10 +3411,53 @@ const QUESTIONS=[
         "meaning": "プロジェクトの作業を管理可能な単位まで階層的に分解する構成。",
         "explanation": "エがシステム開発からプロセスや作業へ分解する図に一致。",
         "chosen": true,
-        "termId": "t052"
+        "termId": "t052",
+        "abbreviation": "WBS",
+        "fullName": "Work Breakdown Structure",
+        "nameMeaning": "作業分解構成図"
       }
     ],
-    "fastRoute": "作業を親子の階層へ分解した図はWBS。日程の前後関係の図ではない。"
+    "fastRoute": "作業を親子の階層へ分解した図はWBS。日程の前後関係の図ではない。",
+    "termIds": [
+      "t052-ア",
+      "t052-イ",
+      "t052-ウ",
+      "t052"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t052-ア",
+        "term": "CPM",
+        "abbreviation": "CPM",
+        "fullName": "Critical Path Method",
+        "nameMeaning": "クリティカルパス法",
+        "role": "作業の所要時間と依存関係から、全体の最短完了時間や余裕を分析する手法。"
+      },
+      {
+        "id": "t052-イ",
+        "term": "EVM",
+        "abbreviation": "EVM",
+        "fullName": "Earned Value Management",
+        "nameMeaning": "出来高管理",
+        "role": "出来高を金額で表し、計画・実績費用と比べて進捗やコストを評価する。"
+      },
+      {
+        "id": "t052-ウ",
+        "term": "PERT",
+        "abbreviation": "PERT",
+        "fullName": "Program Evaluation and Review Technique",
+        "nameMeaning": "計画の評価・検討のための手法",
+        "role": "作業の前後関係をネットワークで表し、日程を計画・分析する。"
+      },
+      {
+        "id": "t052",
+        "term": "WBS",
+        "abbreviation": "WBS",
+        "fullName": "Work Breakdown Structure",
+        "nameMeaning": "作業分解構成図",
+        "role": "プロジェクトの作業を管理可能な単位まで階層的に分解する構成。"
+      }
+    ]
   },
   {
     "n": 53,
@@ -2911,7 +3486,7 @@ const QUESTIONS=[
         "meaning": "依存関係は、矢印のつながりを通して開始条件になる。",
         "explanation": "アではFがDだけの完了で開始でき、Aの終了を待つ条件が抜けている。",
         "chosen": false,
-        "termId": "t053-ア"
+        "termId": "concept-53-33"
       },
       {
         "label": "イ",
@@ -2919,7 +3494,7 @@ const QUESTIONS=[
         "meaning": "所要時間0のダミーは、実作業を増やさず前後関係を表す。",
         "explanation": "Aの終了点からFの開始点へつなぎ、AとDの双方の完了を待たせる。",
         "chosen": true,
-        "termId": "t053"
+        "termId": "concept-53-33"
       },
       {
         "label": "ウ",
@@ -2927,7 +3502,7 @@ const QUESTIONS=[
         "meaning": "不要な依存関係を持ち込まず、元の関係を対応させる。",
         "explanation": "イのダミーで十分な関係に、Fの終了側へのダミーも加えている。元の依存を最小限で表すのはイ。",
         "chosen": false,
-        "termId": "t053-ウ"
+        "termId": "concept-53-33"
       },
       {
         "label": "エ",
@@ -2935,10 +3510,14 @@ const QUESTIONS=[
         "meaning": "待つべき作業の開始点へ依存をつなぐ必要がある。",
         "explanation": "エはFの終了側へ結び、FがAより先に開始できてしまう。",
         "chosen": false,
-        "termId": "t053-エ"
+        "termId": "concept-53-33"
       }
     ],
-    "fastRoute": "FはAとDの両方を待つ。Aの終了からFの開始へダミーを結ぶ。"
+    "fastRoute": "FはAとDの両方を待つ。Aの終了からFの開始へダミーを結ぶ。",
+    "termIds": [
+      "concept-53-33",
+      "concept-53-34"
+    ]
   },
   {
     "n": 54,
@@ -2967,7 +3546,7 @@ const QUESTIONS=[
         "meaning": "機能数×重みを合計し、全体の補正係数を掛ける。",
         "explanation": "1×4+2×5+1×10=24。24×0.75=18なのでア。",
         "chosen": true,
-        "termId": "t054"
+        "termId": "concept-54-35"
       },
       {
         "label": "イ",
@@ -2975,7 +3554,7 @@ const QUESTIONS=[
         "meaning": "補正前の機能規模と、補正後の値を区別する。",
         "explanation": "24は重み付き合計であり、補正係数0.75をまだ適用していない。",
         "chosen": false,
-        "termId": "t054-イ"
+        "termId": "concept-54-35"
       },
       {
         "label": "ウ",
@@ -2983,7 +3562,7 @@ const QUESTIONS=[
         "meaning": "機能種類ごとの個数と重みを正しく掛け合わせる。",
         "explanation": "表の合計は24で、補正後は18。30になる加算や係数の扱いは誤り。",
         "chosen": false,
-        "termId": "t054-ウ"
+        "termId": "concept-54-35"
       },
       {
         "label": "エ",
@@ -2991,10 +3570,13 @@ const QUESTIONS=[
         "meaning": "補正係数を掛けるか割るかで結果が逆になる。",
         "explanation": "24÷0.75=32だが、求めるのは24×0.75。",
         "chosen": false,
-        "termId": "t054-エ"
+        "termId": "concept-54-35"
       }
     ],
-    "fastRoute": "1×4+2×5+1×10=24。その後に補正0.75を掛けて18。"
+    "fastRoute": "1×4+2×5+1×10=24。その後に補正0.75を掛けて18。",
+    "termIds": [
+      "concept-54-35"
+    ]
   },
   {
     "n": 55,
@@ -3023,7 +3605,7 @@ const QUESTIONS=[
         "meaning": "可用性は稼働時間÷予定サービス時間で求める。",
         "explanation": "25％は停止3時間÷提供12時間の停止率。可用性とは逆。",
         "chosen": false,
-        "termId": "t055-ア"
+        "termId": "concept-55-36"
       },
       {
         "label": "イ",
@@ -3031,7 +3613,7 @@ const QUESTIONS=[
         "meaning": "予定時間外まで分母に含めない。",
         "explanation": "7〜21時の14時間で計算して切捨てると64％であり、60％も正しい式からは出ない。",
         "chosen": false,
-        "termId": "t055-イ"
+        "termId": "concept-55-36"
       },
       {
         "label": "ウ",
@@ -3039,7 +3621,7 @@ const QUESTIONS=[
         "meaning": "サービスの可用性は、契約等で定めた提供時間を基準にする。",
         "explanation": "9÷14を切り捨てると64％だが、19〜21時は提供時間外で分母に入れない。",
         "chosen": false,
-        "termId": "t055-ウ"
+        "termId": "concept-55-36"
       },
       {
         "label": "エ",
@@ -3047,10 +3629,13 @@ const QUESTIONS=[
         "meaning": "予定提供7〜19時の12時間中、稼働は7〜16時の9時間。",
         "explanation": "9/12×100=75％。修理終了21時ではなく提供終了19時までを数える。",
         "chosen": true,
-        "termId": "t055"
+        "termId": "concept-55-36"
       }
     ],
-    "fastRoute": "分母は予定提供7〜19時の12時間。実稼働9時間なので75％。"
+    "fastRoute": "分母は予定提供7〜19時の12時間。実稼働9時間なので75％。",
+    "termIds": [
+      "concept-55-36"
+    ]
   },
   {
     "n": 56,
@@ -3102,10 +3687,15 @@ const QUESTIONS=[
         "meaning": "複数拠点の支援要員を中央で管理し、対応を統一する管理方式。",
         "explanation": "エは管理体制の説明であり、ローカル配置の特徴そのものではない。",
         "chosen": false,
-        "termId": "t056-エ"
+        "termId": "t056-ア"
       }
     ],
-    "fastRoute": "利用者の近くに置き、言語や現場事情に合う対面支援ができるのがローカル型。"
+    "fastRoute": "利用者の近くに置き、言語や現場事情に合う対面支援ができるのがローカル型。",
+    "termIds": [
+      "t056-ア",
+      "t056",
+      "t056-ウ"
+    ]
   },
   {
     "n": 57,
@@ -3134,7 +3724,7 @@ const QUESTIONS=[
         "meaning": "誤りの種類に応じ、業務上の判断を持つ発生元と運用側の責任を決める。",
         "explanation": "アは分担することだけを述べ、入力時に早期検出するエほど効率化の直接の説明ではない。",
         "chosen": false,
-        "termId": "t057-ア"
+        "termId": "t041-エ"
       },
       {
         "label": "イ",
@@ -3142,7 +3732,7 @@ const QUESTIONS=[
         "meaning": "原始データの内容の信頼性は、それを作成・承認する業務側の責任が重要。",
         "explanation": "イの全てを運用部門に任せる考え方は、内容を判断できる主体を取り違える。",
         "chosen": false,
-        "termId": "t057-イ"
+        "termId": "t041-エ"
       },
       {
         "label": "ウ",
@@ -3150,7 +3740,7 @@ const QUESTIONS=[
         "meaning": "業務内容の誤りは内容を把握する発生元へ確認して直す。",
         "explanation": "ウの時間が掛かるからできるだけ運用側へ任せるという考え方は、誤修正を招く。",
         "chosen": false,
-        "termId": "t057-ウ"
+        "termId": "t041-エ"
       },
       {
         "label": "エ",
@@ -3158,10 +3748,13 @@ const QUESTIONS=[
         "meaning": "入力に近い段階で誤りを見つければ、後工程の手戻りを抑えられる。",
         "explanation": "エは入力段階で検出・修正する方が効率的だと述べており適切。",
         "chosen": true,
-        "termId": "t057"
+        "termId": "t041-エ"
       }
     ],
-    "fastRoute": "入力時のエラー検出なら後工程の手戻りを減らせる。発生元の判断責任も守る。"
+    "fastRoute": "入力時のエラー検出なら後工程の手戻りを減らせる。発生元の判断責任も守る。",
+    "termIds": [
+      "t041-エ"
+    ]
   },
   {
     "n": 58,
@@ -3217,7 +3810,13 @@ const QUESTIONS=[
         "termId": "t058-エ"
       }
     ],
-    "fastRoute": "データを生成から活用まで順に追跡する監査技法がウォークスルー。"
+    "fastRoute": "データを生成から活用まで順に追跡する監査技法がウォークスルー。",
+    "termIds": [
+      "t058-ア",
+      "t058",
+      "t058-ウ",
+      "t058-エ"
+    ]
   },
   {
     "n": 59,
@@ -3245,7 +3844,7 @@ const QUESTIONS=[
         "meaning": "改善策をどう実行するかは、業務責任を持つ監査対象部門が決める。",
         "explanation": "アの監査人が部門長に実施を直接指示する役割は、フォローアップを超える。",
         "chosen": false,
-        "termId": "t059-ア"
+        "termId": "t059"
       },
       {
         "label": "イ",
@@ -3253,7 +3852,7 @@ const QUESTIONS=[
         "meaning": "改善実務を管理する責任は、改善を実行する側が負う。",
         "explanation": "イでは監査人が実施管理の当事者となり、独立した確認の役割と混同する。",
         "chosen": false,
-        "termId": "t059-イ"
+        "termId": "t059"
       },
       {
         "label": "ウ",
@@ -3269,10 +3868,13 @@ const QUESTIONS=[
         "meaning": "対象部門が提案を踏まえ、実行方法や期限などを具体化する活動。",
         "explanation": "エの計画策定を監査人が担うと、実務側の責任を引き受けてしまう。",
         "chosen": false,
-        "termId": "t059-エ"
+        "termId": "t059"
       }
     ],
-    "fastRoute": "監査人は改善を実施・指示するのでなく、対象部門の改善状況を確認する。"
+    "fastRoute": "監査人は改善を実施・指示するのでなく、対象部門の改善状況を確認する。",
+    "termIds": [
+      "t059"
+    ]
   },
   {
     "n": 60,
@@ -3301,7 +3903,7 @@ const QUESTIONS=[
         "meaning": "受入れの判断責任は委託者側にある。",
         "explanation": "アは委託者が受入テストを計画しても、実施を受託者に任せており、委託者による検証にならない。",
         "chosen": false,
-        "termId": "t060-ア"
+        "termId": "concept-60-38"
       },
       {
         "label": "イ",
@@ -3309,7 +3911,7 @@ const QUESTIONS=[
         "meaning": "計画書が納品されることと、受入テストを実施・評価することは別。",
         "explanation": "イでは計画書の納品だけで、独立した受入確認の実施が示されない。",
         "chosen": false,
-        "termId": "t060-イ"
+        "termId": "concept-60-38"
       },
       {
         "label": "ウ",
@@ -3317,7 +3919,7 @@ const QUESTIONS=[
         "meaning": "発注側が要件を満たすかを自ら確認し、受入れを判断する。",
         "explanation": "ウは委託者が要件定義に基づいて行っており、監査で確認すべき適切な状況。",
         "chosen": true,
-        "termId": "t060"
+        "termId": "concept-60-38"
       },
       {
         "label": "エ",
@@ -3325,10 +3927,13 @@ const QUESTIONS=[
         "meaning": "監査人は独立して評価し、業務上の計画や実施の責任を負わない。",
         "explanation": "エは監査人を受入業務の当事者にするため、独立性が保てない。",
         "chosen": false,
-        "termId": "t060-エ"
+        "termId": "concept-60-38"
       }
     ],
-    "fastRoute": "委託者自身が要件定義に基づいて受入テストを実施しているかを見る。"
+    "fastRoute": "委託者自身が要件定義に基づいて受入テストを実施しているかを見る。",
+    "termIds": [
+      "concept-60-38"
+    ]
   },
   {
     "n": 61,
@@ -3356,7 +3961,7 @@ const QUESTIONS=[
         "meaning": "管理・報告・分析を支援し、意思決定に必要な情報を提供する投資。",
         "explanation": "アは情報カテゴリの直接の目的。",
         "chosen": false,
-        "termId": "t061-ア"
+        "termId": "concept-61-39"
       },
       {
         "label": "イ",
@@ -3364,7 +3969,7 @@ const QUESTIONS=[
         "meaning": "競争優位や市場での位置付けを獲得するための投資。",
         "explanation": "イは戦略カテゴリに当たり、日常取引の効率化とは目的が異なる。",
         "chosen": false,
-        "termId": "t061-イ"
+        "termId": "concept-61-39"
       },
       {
         "label": "ウ",
@@ -3372,7 +3977,7 @@ const QUESTIONS=[
         "meaning": "複数の業務やアプリが共通して使う技術基盤への投資。",
         "explanation": "ウはインフラカテゴリの目的。",
         "chosen": false,
-        "termId": "t061-ウ"
+        "termId": "concept-61-39"
       },
       {
         "label": "エ",
@@ -3380,10 +3985,13 @@ const QUESTIONS=[
         "meaning": "定型的な業務や取引を効率化し、処理コストを下げる投資。",
         "explanation": "エがルーチン業務のコスト削減と処理効率向上なので該当する。",
         "chosen": true,
-        "termId": "t061"
+        "termId": "concept-61-39"
       }
     ],
-    "fastRoute": "トランザクション分野の投資は、定型業務の処理効率向上とコスト削減。"
+    "fastRoute": "トランザクション分野の投資は、定型業務の処理効率向上とコスト削減。",
+    "termIds": [
+      "concept-61-39"
+    ]
   },
   {
     "n": 62,
@@ -3420,7 +4028,7 @@ const QUESTIONS=[
         "meaning": "作業や必要な資源等を具体化し、個別案件を管理する活動。",
         "explanation": "イは個別案件の細分化で、複数案件を統合するP2Mの中心的説明ではない。",
         "chosen": false,
-        "termId": "t062-イ"
+        "termId": "t062"
       },
       {
         "label": "ウ",
@@ -3428,7 +4036,7 @@ const QUESTIONS=[
         "meaning": "プログラム言語や開発手法等を選び、個別開発の方式を決める活動。",
         "explanation": "ウは技術上の方針決定。事業構想を複数案件の組合せで実現する説明ではない。",
         "chosen": false,
-        "termId": "t062-ウ"
+        "termId": "t062"
       },
       {
         "label": "エ",
@@ -3436,10 +4044,35 @@ const QUESTIONS=[
         "meaning": "組織のプロジェクト管理を標準化・支援する専門組織。",
         "explanation": "エは支援組織を設ける説明で、プログラムの連携・統合という設問の主題とは違う。",
         "chosen": false,
-        "termId": "t062-エ"
+        "termId": "t062-エ",
+        "abbreviation": "PMO",
+        "fullName": "Project Management Office",
+        "nameMeaning": "プロジェクトマネジメントを支援する組織"
       }
     ],
-    "fastRoute": "P2Mは複数案件を連携・統合し、全体の事業価値を高める考え方。"
+    "fastRoute": "P2Mは複数案件を連携・統合し、全体の事業価値を高める考え方。",
+    "termIds": [
+      "t062",
+      "t062-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t062",
+        "term": "プログラムマネジメント（P2M）",
+        "abbreviation": "P2M",
+        "fullName": "Program & Project Management for Enterprise Innovation",
+        "nameMeaning": "企業革新のためのプログラム・プロジェクトマネジメント",
+        "role": "関連プロジェクトを連携・統合し、事業構想や組織戦略の価値を実現する。"
+      },
+      {
+        "id": "t062-エ",
+        "term": "PMO",
+        "abbreviation": "PMO",
+        "fullName": "Project Management Office",
+        "nameMeaning": "プロジェクトマネジメントを支援する組織",
+        "role": "組織のプロジェクト管理を標準化・支援する専門組織。"
+      }
+    ]
   },
   {
     "n": 63,
@@ -3467,7 +4100,7 @@ const QUESTIONS=[
         "meaning": "企業が保有する機器を従業員へ貸し出して業務で使わせる形態。",
         "explanation": "アは端末の所有者が会社であり、私有端末を持ち込むBYODではない。",
         "chosen": false,
-        "termId": "t063-ア"
+        "termId": "t063"
       },
       {
         "label": "イ",
@@ -3475,7 +4108,7 @@ const QUESTIONS=[
         "meaning": "会社所有の端末を個人的な用途にも使うこと。",
         "explanation": "イは所有者も用途もBYODと逆方向。",
         "chosen": false,
-        "termId": "t063-イ"
+        "termId": "t063"
       },
       {
         "label": "ウ",
@@ -3483,7 +4116,7 @@ const QUESTIONS=[
         "meaning": "個人が所有する端末を個人的な活動に使うこと。",
         "explanation": "ウは通常の私的利用で、業務への持込みではない。",
         "chosen": false,
-        "termId": "t063-ウ"
+        "termId": "t063"
       },
       {
         "label": "エ",
@@ -3491,10 +4124,16 @@ const QUESTIONS=[
         "meaning": "個人所有の情報機器を組織の業務に利用すること。",
         "explanation": "エは所有者が個人、目的が業務なので該当する。",
         "chosen": true,
-        "termId": "t063"
+        "termId": "t063",
+        "abbreviation": "BYOD",
+        "fullName": "Bring Your Own Device",
+        "nameMeaning": "自分の機器を持ち込むこと"
       }
     ],
-    "fastRoute": "所有者が個人、利用目的が業務ならBYOD。"
+    "fastRoute": "所有者が個人、利用目的が業務ならBYOD。",
+    "termIds": [
+      "t063"
+    ]
   },
   {
     "n": 64,
@@ -3523,7 +4162,7 @@ const QUESTIONS=[
         "meaning": "ROIは利益を投資額で割り、投資の効率を比べる指標。",
         "explanation": "aの5年利益は15+30+45+30+15=135。135/100=135％で4案中最大。",
         "chosen": true,
-        "termId": "t064"
+        "termId": "concept-64-40"
       },
       {
         "label": "イ",
@@ -3531,7 +4170,7 @@ const QUESTIONS=[
         "meaning": "利益総額だけでなく、そのために投じた額で正規化する。",
         "explanation": "105+75+45+15=240。240/200=120％でaより小さい。",
         "chosen": false,
-        "termId": "t064-イ"
+        "termId": "concept-64-40"
       },
       {
         "label": "ウ",
@@ -3539,7 +4178,7 @@ const QUESTIONS=[
         "meaning": "投資規模の違う案を比べるには割合で見る。",
         "explanation": "60+75+90+75+60=360。360/300=120％でaより小さい。",
         "chosen": false,
-        "termId": "t064-ウ"
+        "termId": "concept-64-40"
       },
       {
         "label": "エ",
@@ -3547,10 +4186,13 @@ const QUESTIONS=[
         "meaning": "利益額が最大でも、投資額も大きければROI最大とは限らない。",
         "explanation": "105×5=525。525/400=131.25％で135％のaに届かない。",
         "chosen": false,
-        "termId": "t064-エ"
+        "termId": "concept-64-40"
       }
     ],
-    "fastRoute": "5年分の利益合計を投資額で割る。aは135％でdの131.25％を上回る。"
+    "fastRoute": "5年分の利益合計を投資額で割る。aは135％でdの131.25％を上回る。",
+    "termIds": [
+      "concept-64-40"
+    ]
   },
   {
     "n": 65,
@@ -3581,7 +4223,7 @@ const QUESTIONS=[
         "meaning": "重み付き評価の実績点と達成率は区別する。",
         "explanation": "27は5×3+8×0+12×1の実績点。百分率にするには目標75点で割る。",
         "chosen": false,
-        "termId": "t065-ア"
+        "termId": "concept-65-41"
       },
       {
         "label": "イ",
@@ -3589,7 +4231,7 @@ const QUESTIONS=[
         "meaning": "重み×評価点を合計し、全項目が目標どおりの点で割る。",
         "explanation": "実績27点、目標(5+8+12)×3=75点。27/75=36％。",
         "chosen": true,
-        "termId": "t065"
+        "termId": "concept-65-41"
       },
       {
         "label": "ウ",
@@ -3597,7 +4239,7 @@ const QUESTIONS=[
         "meaning": "重みを考慮し、表に定義された評価点を使う。",
         "explanation": "単純平均などではなく、27/75で求めるため43％ではない。",
         "chosen": false,
-        "termId": "t065-ウ"
+        "termId": "concept-65-41"
       },
       {
         "label": "エ",
@@ -3605,10 +4247,13 @@ const QUESTIONS=[
         "meaning": "未達の項目を目標点として加算しない。",
         "explanation": "期間短縮の評価は0で、情報統合は1。評価結果を表どおりに使うと36％。",
         "chosen": false,
-        "termId": "t065-エ"
+        "termId": "concept-65-41"
       }
     ],
-    "fastRoute": "実績点は27、全て目標どおりなら75。27/75=36％。"
+    "fastRoute": "実績点は27、全て目標どおりなら75。27/75=36％。",
+    "termIds": [
+      "concept-65-41"
+    ]
   },
   {
     "n": 66,
@@ -3652,7 +4297,10 @@ const QUESTIONS=[
         "meaning": "企業の合併や買収により、事業拡大・再編・経営資源の獲得等を行う。",
         "explanation": "ウの他社の経営資源を獲得・活用する説明が該当する。",
         "chosen": true,
-        "termId": "t066"
+        "termId": "t066",
+        "abbreviation": "M&A",
+        "fullName": "Mergers and Acquisitions",
+        "nameMeaning": "合併と買収"
       },
       {
         "label": "エ",
@@ -3660,10 +4308,37 @@ const QUESTIONS=[
         "meaning": "市場成長率と相対市場占有率等を使い、事業への資源配分を考える。",
         "explanation": "エは事業ポートフォリオの分析で、合併・買収そのものではない。",
         "chosen": false,
-        "termId": "t066-エ"
+        "termId": "t066-エ",
+        "abbreviation": "PPM",
+        "fullName": "Product Portfolio Management",
+        "nameMeaning": "製品・事業のポートフォリオ管理"
       }
     ],
-    "fastRoute": "他社の経営資源を合併・買収で取り込む説明を選ぶ。"
+    "fastRoute": "他社の経営資源を合併・買収で取り込む説明を選ぶ。",
+    "termIds": [
+      "t066-ア",
+      "t066-イ",
+      "t066",
+      "t066-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t066",
+        "term": "M&A",
+        "abbreviation": "M&A",
+        "fullName": "Mergers and Acquisitions",
+        "nameMeaning": "合併と買収",
+        "role": "企業の合併や買収により、事業拡大・再編・経営資源の獲得等を行う。"
+      },
+      {
+        "id": "t066-エ",
+        "term": "PPM",
+        "abbreviation": "PPM",
+        "fullName": "Product Portfolio Management",
+        "nameMeaning": "製品・事業のポートフォリオ管理",
+        "role": "市場成長率と相対市場占有率等を使い、事業への資源配分を考える。"
+      }
+    ]
   },
   {
     "n": 67,
@@ -3691,7 +4366,7 @@ const QUESTIONS=[
         "meaning": "開始前に計画を具体化し、資金等の条件を整えて進める方法。",
         "explanation": "アの補助金を前提とした詳細計画は、小さな試行で仮説を学ぶリーンの中心ではない。",
         "chosen": false,
-        "termId": "t067-ア"
+        "termId": "t067"
       },
       {
         "label": "イ",
@@ -3699,7 +4374,7 @@ const QUESTIONS=[
         "meaning": "既存分野へ経営資源を追加して再生や競争力回復を図る。",
         "explanation": "イは大規模投入の説明で、最小限の製品で検証する方法ではない。",
         "chosen": false,
-        "termId": "t067-イ"
+        "termId": "t067"
       },
       {
         "label": "ウ",
@@ -3707,7 +4382,7 @@ const QUESTIONS=[
         "meaning": "事前計画を厳格に守り、計画変更等を抑える進め方。",
         "explanation": "ウは学習結果で改善・方向転換するリーンスタートアップと反対。",
         "chosen": false,
-        "termId": "t067-ウ"
+        "termId": "t067"
       },
       {
         "label": "エ",
@@ -3718,7 +4393,10 @@ const QUESTIONS=[
         "termId": "t067"
       }
     ],
-    "fastRoute": "最小限で作り、計測し、学んで改善する循環がリーンスタートアップ。"
+    "fastRoute": "最小限で作り、計測し、学んで改善する循環がリーンスタートアップ。",
+    "termIds": [
+      "t067"
+    ]
   },
   {
     "n": 68,
@@ -3746,7 +4424,10 @@ const QUESTIONS=[
         "meaning": "顧客情報や接点を管理し、営業・顧客満足等の向上へつなげる考え方。",
         "explanation": "アは顧客を中心とする管理で、企業全体の経営資源を統合するERPとは異なる。",
         "chosen": false,
-        "termId": "t068-ア"
+        "termId": "t068-ア",
+        "abbreviation": "CRM",
+        "fullName": "Customer Relationship Management",
+        "nameMeaning": "顧客関係管理"
       },
       {
         "label": "イ",
@@ -3762,7 +4443,10 @@ const QUESTIONS=[
         "meaning": "企業全体の人・物・金・情報等を統合的に計画・管理する仕組み。",
         "explanation": "ウが経営資源全体の最適化を目指す説明に一致する。",
         "chosen": true,
-        "termId": "t068"
+        "termId": "t068",
+        "abbreviation": "ERP",
+        "fullName": "Enterprise Resource Planning",
+        "nameMeaning": "企業資源計画"
       },
       {
         "label": "エ",
@@ -3770,10 +4454,45 @@ const QUESTIONS=[
         "meaning": "電子的なネットワークを用いて商品・サービス等を取引すること。",
         "explanation": "エは販売・購買の取引手段で、ERPの統合管理そのものではない。",
         "chosen": false,
-        "termId": "t068-エ"
+        "termId": "t068-エ",
+        "abbreviation": "EC",
+        "fullName": "Electronic Commerce",
+        "nameMeaning": "電子商取引"
       }
     ],
-    "fastRoute": "企業全体の人・物・金・情報を統合して管理するのがERP。"
+    "fastRoute": "企業全体の人・物・金・情報を統合して管理するのがERP。",
+    "termIds": [
+      "t068-ア",
+      "t068-イ",
+      "t068",
+      "t068-エ"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t068-ア",
+        "term": "CRM",
+        "abbreviation": "CRM",
+        "fullName": "Customer Relationship Management",
+        "nameMeaning": "顧客関係管理",
+        "role": "顧客情報や接点を管理し、営業・顧客満足等の向上へつなげる考え方。"
+      },
+      {
+        "id": "t068",
+        "term": "ERP",
+        "abbreviation": "ERP",
+        "fullName": "Enterprise Resource Planning",
+        "nameMeaning": "企業資源計画",
+        "role": "企業全体の人・物・金・情報等を統合的に計画・管理する仕組み。"
+      },
+      {
+        "id": "t068-エ",
+        "term": "EC（電子商取引）",
+        "abbreviation": "EC",
+        "fullName": "Electronic Commerce",
+        "nameMeaning": "電子商取引",
+        "role": "電子的なネットワークを用いて商品・サービス等を取引すること。"
+      }
+    ]
   },
   {
     "n": 69,
@@ -3801,7 +4520,7 @@ const QUESTIONS=[
         "meaning": "研究を行う主体と、成果の技術移転を支える主体を区別する。",
         "explanation": "アはTLO自身が研究し特許を取得するとしており、大学の成果を移転する中心的役割と異なる。",
         "chosen": false,
-        "termId": "t069-ア"
+        "termId": "t069"
       },
       {
         "label": "イ",
@@ -3809,7 +4528,7 @@ const QUESTIONS=[
         "meaning": "企業から研究依頼や相談を受け、大学等との研究へつなぐ窓口業務。",
         "explanation": "イは連携活動の一部だが、TLOを特徴付けるのは成果の権利化と移転。",
         "chosen": false,
-        "termId": "t069-イ"
+        "termId": "t069"
       },
       {
         "label": "ウ",
@@ -3817,7 +4536,7 @@ const QUESTIONS=[
         "meaning": "企業の合併・買収に関する取引や経営再編を支援する。",
         "explanation": "ウは企業の所有関係の変更で、大学の研究成果の移転とは異なる。",
         "chosen": false,
-        "termId": "t069-ウ"
+        "termId": "t069"
       },
       {
         "label": "エ",
@@ -3825,10 +4544,16 @@ const QUESTIONS=[
         "meaning": "大学等の研究成果の特許化や企業へのライセンス等を支援する技術移転機関。",
         "explanation": "エが大学の研究成果を企業で活用させる役割を述べている。",
         "chosen": true,
-        "termId": "t069"
+        "termId": "t069",
+        "abbreviation": "TLO",
+        "fullName": "Technology Licensing Organization",
+        "nameMeaning": "技術移転機関"
       }
     ],
-    "fastRoute": "大学の研究成果を特許化し企業へ移転する支援がTLOの中心。"
+    "fastRoute": "大学の研究成果を特許化し企業へ移転する支援がTLOの中心。",
+    "termIds": [
+      "t069"
+    ]
   },
   {
     "n": 70,
@@ -3856,7 +4581,7 @@ const QUESTIONS=[
         "meaning": "3次元データを送り、離れた場所で物体を造形できる。",
         "explanation": "アはデジタル製造や造形の説明で、現実を仮想モデルへ再現するデジタルツインではない。",
         "chosen": false,
-        "termId": "t070-ア"
+        "termId": "t070-イ"
       },
       {
         "label": "イ",
@@ -3872,7 +4597,7 @@ const QUESTIONS=[
         "meaning": "機器をネットワークにつなぎ、離れた場所で状態を見たり操作したりする。",
         "explanation": "ウは接続や遠隔操作の説明。仮想空間での再現・分析が示されない。",
         "chosen": false,
-        "termId": "t070-ウ"
+        "termId": "t070-イ"
       },
       {
         "label": "エ",
@@ -3883,7 +4608,12 @@ const QUESTIONS=[
         "termId": "t070"
       }
     ],
-    "fastRoute": "現実のセンサデータを仮想モデルへ反映し、再現・予測するのがデジタルツイン。"
+    "fastRoute": "現実のセンサデータを仮想モデルへ反映し、再現・予測するのがデジタルツイン。",
+    "termIds": [
+      "t070-イ",
+      "t070",
+      "concept-70-42"
+    ]
   },
   {
     "n": 71,
@@ -3912,7 +4642,7 @@ const QUESTIONS=[
         "meaning": "同種の製品を大きな量で繰り返し作る方式。",
         "explanation": "アの条件には、工程を専用化したライン生産等が適しやすい。",
         "chosen": false,
-        "termId": "t071-ア"
+        "termId": "concept-71-43"
       },
       {
         "label": "イ",
@@ -3920,7 +4650,7 @@ const QUESTIONS=[
         "meaning": "作業を標準化・専用化しやすい生産条件。",
         "explanation": "イは柔軟な切替えの利点が中心のセル生産の特徴を生かす条件ではない。",
         "chosen": false,
-        "termId": "t071-イ"
+        "termId": "concept-71-43"
       },
       {
         "label": "ウ",
@@ -3928,7 +4658,7 @@ const QUESTIONS=[
         "meaning": "少人数で複数工程を担当し、製品や数量の変化へ柔軟に対応する。",
         "explanation": "ウの多種類でフレキシブルな生産に適する。",
         "chosen": true,
-        "termId": "t071"
+        "termId": "concept-71-43"
       },
       {
         "label": "エ",
@@ -3936,10 +4666,13 @@ const QUESTIONS=[
         "meaning": "工程を細かく分け、担当者や設備を特定工程へ専門化する。",
         "explanation": "エは多工程をまとめて担当するセル生産より、ライン方式の特徴。",
         "chosen": false,
-        "termId": "t071-エ"
+        "termId": "concept-71-43"
       }
     ],
-    "fastRoute": "セル生産は少人数で多工程を担当し、多品種・柔軟な変更に対応する。"
+    "fastRoute": "セル生産は少人数で多工程を担当し、多品種・柔軟な変更に対応する。",
+    "termIds": [
+      "concept-71-43"
+    ]
   },
   {
     "n": 72,
@@ -3967,7 +4700,10 @@ const QUESTIONS=[
         "meaning": "衛星からの信号等を利用し、位置を測定する仕組み。",
         "explanation": "アは測位で、ICタグの近距離無線による識別ではない。",
         "chosen": false,
-        "termId": "t072-ア"
+        "termId": "t072-ア",
+        "abbreviation": "GPS",
+        "fullName": "Global Positioning System",
+        "nameMeaning": "全地球測位システム"
       },
       {
         "label": "イ",
@@ -3983,7 +4719,7 @@ const QUESTIONS=[
         "meaning": "ICタグ自体に情報を記録するメモリを備える。",
         "explanation": "ウの外部記憶装置を必ず使用する説明は不適切。",
         "chosen": false,
-        "termId": "t072-ウ"
+        "termId": "t072-ア"
       },
       {
         "label": "エ",
@@ -3991,10 +4727,36 @@ const QUESTIONS=[
         "meaning": "電波でICタグを非接触に識別・読取りする技術。",
         "explanation": "エの汚れに強く梱包の外から読めるという特徴が適切。ただし金属等の環境で性能は変わる。",
         "chosen": true,
-        "termId": "t072"
+        "termId": "t072",
+        "abbreviation": "RFID",
+        "fullName": "Radio Frequency Identification",
+        "nameMeaning": "電波による識別"
       }
     ],
-    "fastRoute": "電波で非接触に読めるICタグを選ぶ。磁気カードやGPSとは別。"
+    "fastRoute": "電波で非接触に読めるICタグを選ぶ。磁気カードやGPSとは別。",
+    "termIds": [
+      "t072-ア",
+      "t072-イ",
+      "t072"
+    ],
+    "acronymCompare": [
+      {
+        "id": "t072-ア",
+        "term": "GPS",
+        "abbreviation": "GPS",
+        "fullName": "Global Positioning System",
+        "nameMeaning": "全地球測位システム",
+        "role": "衛星からの信号等を利用し、位置を測定する仕組み。"
+      },
+      {
+        "id": "t072",
+        "term": "RFID",
+        "abbreviation": "RFID",
+        "fullName": "Radio Frequency Identification",
+        "nameMeaning": "電波による識別",
+        "role": "電波でICタグを非接触に識別・読取りする技術。"
+      }
+    ]
   },
   {
     "n": 73,
@@ -4038,7 +4800,10 @@ const QUESTIONS=[
         "meaning": "ページの内容や構造等を改善し、自然検索で見つけられやすくする。",
         "explanation": "ウが検索結果の上位表示に向けた改善を述べている。",
         "chosen": true,
-        "termId": "t073"
+        "termId": "t073",
+        "abbreviation": "SEO",
+        "fullName": "Search Engine Optimization",
+        "nameMeaning": "検索エンジン最適化"
       },
       {
         "label": "エ",
@@ -4049,7 +4814,13 @@ const QUESTIONS=[
         "termId": "t073-エ"
       }
     ],
-    "fastRoute": "自然検索で見つけられやすい内容・構造へ改善するのがSEO。広告出稿とは別。"
+    "fastRoute": "自然検索で見つけられやすい内容・構造へ改善するのがSEO。広告出稿とは別。",
+    "termIds": [
+      "t073-ア",
+      "t073-イ",
+      "t073",
+      "t073-エ"
+    ]
   },
   {
     "n": 74,
@@ -4078,7 +4849,7 @@ const QUESTIONS=[
         "meaning": "問題の原因をツリー状に分け、統計的に分析して解決策を探す手法。",
         "explanation": "アはアナリストが原因を整理・分析する説明で、ロボット自身が学習して作業を改善する例ではない。",
         "chosen": false,
-        "termId": "t074-ア"
+        "termId": "t074-エ"
       },
       {
         "label": "イ",
@@ -4086,7 +4857,7 @@ const QUESTIONS=[
         "meaning": "通信等で状態や指令をやり取りし、設備を即時に制御する。",
         "explanation": "イは接続と制御の仕組みで、ロボット自身の機械学習ではない。",
         "chosen": false,
-        "termId": "t074-イ"
+        "termId": "t074-エ"
       },
       {
         "label": "ウ",
@@ -4094,7 +4865,7 @@ const QUESTIONS=[
         "meaning": "経験や実行結果から規則や方策を学び、作業効率等を高める。",
         "explanation": "ウは作業方法を全て指定せずロボット自身が学ぶので、設問に一致。",
         "chosen": true,
-        "termId": "t074"
+        "termId": "t074-エ"
       },
       {
         "label": "エ",
@@ -4105,7 +4876,11 @@ const QUESTIONS=[
         "termId": "t074-エ"
       }
     ],
-    "fastRoute": "ロボット自身が実行結果から作業方法を学ぶ例を選ぶ。接続や遠隔制御だけではない。"
+    "fastRoute": "ロボット自身が実行結果から作業方法を学ぶ例を選ぶ。接続や遠隔制御だけではない。",
+    "termIds": [
+      "t074-エ",
+      "concept-74-44"
+    ]
   },
   {
     "n": 75,
@@ -4160,7 +4935,13 @@ const QUESTIONS=[
         "termId": "t075-エ"
       }
     ],
-    "fastRoute": "経営者を監視・統制する仕組みはコーポレートガバナンス。"
+    "fastRoute": "経営者を監視・統制する仕組みはコーポレートガバナンス。",
+    "termIds": [
+      "t075-ア",
+      "t075-イ",
+      "t075",
+      "t075-エ"
+    ]
   },
   {
     "n": 76,
@@ -4189,7 +4970,7 @@ const QUESTIONS=[
         "meaning": "生産に使う原料量は、在庫量以下でなければならない。",
         "explanation": "アは4x+8y≥40等で、原料を最低限使う条件になっている。上限の≤が正しい。",
         "chosen": false,
-        "termId": "t076-ア"
+        "termId": "concept-76-45"
       },
       {
         "label": "イ",
@@ -4197,7 +4978,7 @@ const QUESTIONS=[
         "meaning": "原料ごとの使用量を制約とし、利益を目的関数へ置く。",
         "explanation": "Pは4x+8y≤40、Qは9x+6y≤54。非負条件の下で2x+3yを最大化する。",
         "chosen": true,
-        "termId": "t076"
+        "termId": "concept-76-45"
       },
       {
         "label": "ウ",
@@ -4205,7 +4986,7 @@ const QUESTIONS=[
         "meaning": "1つの制約式には同じ原料に対するA・Bの使用量を並べる。",
         "explanation": "ウはPとQの係数を混ぜ、さらに資源量の上限の向きも逆。",
         "chosen": false,
-        "termId": "t076-ウ"
+        "termId": "concept-76-45"
       },
       {
         "label": "エ",
@@ -4213,10 +4994,13 @@ const QUESTIONS=[
         "meaning": "A1トンの必要原料はP4・Q9、BはP8・Q6。",
         "explanation": "エはPの式を4x+9yとしており、AのPとQを同じ行へ混ぜている。",
         "chosen": false,
-        "termId": "t076-エ"
+        "termId": "concept-76-45"
       }
     ],
-    "fastRoute": "原料PとQを別々の式にし、使用量≤在庫量。利益2x+3yは最大化する目的関数。"
+    "fastRoute": "原料PとQを別々の式にし、使用量≤在庫量。利益2x+3yは最大化する目的関数。",
+    "termIds": [
+      "concept-76-45"
+    ]
   },
   {
     "n": 77,
@@ -4246,7 +5030,7 @@ const QUESTIONS=[
         "meaning": "定額法の年間費用は償却対象額÷耐用年数。",
         "explanation": "3000÷20=150は過去の累計額を分子にした誤計算。",
         "chosen": false,
-        "termId": "t077-ア"
+        "termId": "concept-77-46"
       },
       {
         "label": "イ",
@@ -4254,7 +5038,7 @@ const QUESTIONS=[
         "meaning": "定額法の毎年額を、減価償却累計を引いた帳簿価額から再計算しない。",
         "explanation": "(10000−3000)÷20=350では定額法の年間額にならない。",
         "chosen": false,
-        "termId": "t077-イ"
+        "termId": "concept-77-46"
       },
       {
         "label": "ウ",
@@ -4262,7 +5046,7 @@ const QUESTIONS=[
         "meaning": "定額法は取得価額から残存価額を引いた額を年数で均等配分する。",
         "explanation": "(10000−0)÷20=500千円。過去の累計3000は年間額に影響しない。",
         "chosen": true,
-        "termId": "t077"
+        "termId": "concept-77-46"
       },
       {
         "label": "エ",
@@ -4270,10 +5054,14 @@ const QUESTIONS=[
         "meaning": "償却累計は過去に費用化した額で、取得価額へ加算しない。",
         "explanation": "(10000+3000)÷20=650は償却累計を足してしまった値。",
         "chosen": false,
-        "termId": "t077-エ"
+        "termId": "concept-77-46"
       }
     ],
-    "fastRoute": "定額法は(取得10000−残存0)/20。償却累計を引き直さず500千円。"
+    "fastRoute": "定額法は(取得10000−残存0)/20。償却累計を引き直さず500千円。",
+    "termIds": [
+      "concept-77-46",
+      "concept-77-47"
+    ]
   },
   {
     "n": 78,
@@ -4302,7 +5090,7 @@ const QUESTIONS=[
         "meaning": "利益区分ごとに、差し引く費用の範囲が異なる。",
         "explanation": "営業利益300から営業外費用30だけを引いた値。営業利益に営業外項目は含めない。",
         "chosen": false,
-        "termId": "t078-ア"
+        "termId": "concept-78-48"
       },
       {
         "label": "イ",
@@ -4310,7 +5098,7 @@ const QUESTIONS=[
         "meaning": "売上高から売上原価と販管費を引いた利益。",
         "explanation": "1500−1000−200=300百万円なのでイ。",
         "chosen": true,
-        "termId": "t078"
+        "termId": "concept-78-48"
       },
       {
         "label": "ウ",
@@ -4318,7 +5106,7 @@ const QUESTIONS=[
         "meaning": "営業利益に営業外収益を加え、営業外費用を引いた利益。",
         "explanation": "300+40−30=310は経常利益。問う営業利益ではない。",
         "chosen": false,
-        "termId": "t078-ウ"
+        "termId": "concept-78-48"
       },
       {
         "label": "エ",
@@ -4326,10 +5114,15 @@ const QUESTIONS=[
         "meaning": "売上高から売上原価を引いた利益で、粗利益とも呼ぶ。",
         "explanation": "1500−1000=500。販管費200も引いて初めて営業利益となる。",
         "chosen": false,
-        "termId": "t078-エ"
+        "termId": "concept-78-48"
       }
     ],
-    "fastRoute": "営業利益は1500−1000−200=300。営業外収益・費用はまだ足し引きしない。"
+    "fastRoute": "営業利益は1500−1000−200=300。営業外収益・費用はまだ足し引きしない。",
+    "termIds": [
+      "concept-78-48",
+      "concept-78-49",
+      "concept-78-50"
+    ]
   },
   {
     "n": 79,
@@ -4367,7 +5160,7 @@ const QUESTIONS=[
         "meaning": "言語を機械語等へ翻訳する具体的なソフトウェア。",
         "explanation": "イは具体的なプログラムの表現で、著作物として保護される。保護されるものを問う設問の正答。",
         "chosen": true,
-        "termId": "t079"
+        "termId": "t079-ア"
       },
       {
         "label": "ウ",
@@ -4386,7 +5179,13 @@ const QUESTIONS=[
         "termId": "t079-エ"
       }
     ],
-    "fastRoute": "保護「される」ものを選ぶ。解法・言語・規約でなく、具体的なコンパイラのプログラム。"
+    "fastRoute": "保護「される」ものを選ぶ。解法・言語・規約でなく、具体的なコンパイラのプログラム。",
+    "termIds": [
+      "t079-ア",
+      "t079-ウ",
+      "t079-エ",
+      "concept-79-51"
+    ]
   },
   {
     "n": 80,
@@ -4441,6 +5240,12 @@ const QUESTIONS=[
         "termId": "t080"
       }
     ],
-    "fastRoute": "派遣元が雇用し、派遣先が指揮命令する関係が派遣。"
+    "fastRoute": "派遣元が雇用し、派遣先が指揮命令する関係が派遣。",
+    "termIds": [
+      "t080-ア",
+      "t080-イ",
+      "t080-ウ",
+      "t080"
+    ]
   }
 ];

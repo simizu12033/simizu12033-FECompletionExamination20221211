@@ -124,7 +124,9 @@ window.FEStudy=(()=>{
  function enhanceQuestion(node,q){
   const review=node.querySelector('.review-content'),fast=document.createElement('section');fast.className='fast-route';
   fast.innerHTML=`<p class="study-step">1　試験での見分け方</p><h3>正答への最短ルート</h3><p>${safe(q.fastRoute)}</p>`;
-  review.prepend(fast);node.querySelector('.explanation h3').textContent='2　仕組みと理由を理解する';
+  review.prepend(fast);
+  if(q.acronymCompare?.length){const section=document.createElement('section');section.className='acronym-comparison';section.innerHTML=`<h3>略語を正式名称と役割で比べる</h3><p>正答だけでなく、他の選択肢の用語も一緒に確認しましょう。</p><div class="lab-table-scroll"><table class="lab-table"><thead><tr><th>用語</th><th>英語の正式名称</th><th>日本語の意味</th><th>役割</th></tr></thead><tbody>${q.acronymCompare.map(t=>`<tr><th><a href="#termLearning" data-term-ref="${safe(t.id)}">${safe(t.term)}</a></th><td lang="en">${safe(t.fullName)}</td><td>${safe(t.nameMeaning)}</td><td>${safe(t.role)}</td></tr>`).join('')}</tbody></table></div><p class="lab-note">用語名を選ぶと、そのカードで意味と見分け方を復習できます。</p></section>`;fast.after(section)}
+  node.querySelector('.explanation h3').textContent='2　仕組みと理由を理解する';
   const lab=mountLab(q);if(lab)node.querySelector('.visual').after(lab);
   const recall=mountRecall(q);node.querySelector('.option-comparison').before(recall);
  }
